@@ -95,15 +95,15 @@ contract Example is Upgradeable {
 
 1. Example 컨트랙트를 배포합니다.
 
-(/assets/images/3_first_proxy_remix_ide_1.png)
+![remix_ide_1](/assets/images/3_first_proxy_remix_ide_1.png)
 
 2. Example 컨트랙트 주소로 Dispatcher 컨트랙트를 배포합니다. 
 
-(/assets/images/3_first_proxy_remix_ide_2.png)
+![remix_ide_2](/assets/images/3_first_proxy_remix_ide_2.png)
 
 3. Example 컨트랙트가 이제 Dispatcher 주소에서 실행중이라고 Remix에 알립니다. 
 
-(/assets/images/3_first_proxy_remix_ide_3.png)
+![remix_ide_3](/assets/images/3_first_proxy_remix_ide_3.png)
 
 ```
 스토리지 위치
@@ -113,11 +113,11 @@ contract Example is Upgradeable {
 
 Example-Dispatcher 컨트랙트에서, Uint를 설정하고, Uint를 받습니다. 변수가 정확하게 저장되지만, Dispatcher는 setUint, getUint 함수를 알지 못합니다. 또한, Example 에서 상송하지도 않습니다. 
 
-(/assets/images/3_first_proxy_remix_ide_4.png)
+![remix_ide_4](/assets/images/3_first_proxy_remix_ide_4.png)
 
 이는 기본적으로 Dispacher를 Storage처럼 사용하지만, Example 컨트랙트에 저장된 로직을 사용하여 일어나는 일을 제외합니다. Dispatcher가 Example 컨트랙트와 "대화"하는 대신, Example 컨트랙트 코드가 Dispatcher 범위로 이동해 실행하고, Dispatcher Storage를 변경합니다. 이는 이전의 Eternal Storage 패턴과의 큰 차이점입니다. 
 
-(/assets/images/first_proxy_1.png)
+![action_flow](/assets/images/first_proxy_1.png)
 
 `delegatecall` op-code는 Example 컨트랙트를 Dispatcher로 이동하고, Dispatcher Storage를 사용합니다. getUint() 에서 uint * 2 결과를 반환하는 스마트 컨트랙트로 업그레이드 하고 싶다고 가정해 보겠습니다.
 
