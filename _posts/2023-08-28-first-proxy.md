@@ -13,7 +13,7 @@ tags: [BlockChain, Dev, Smart Contract, Proxy, Upgradeable Smart Contract]
 (제가 알기로는) 최초로 제안된 프록시는 닉 존슨이 제안했습니다. 잘 모르시는 분들을 위해 소개하자면, 그는 이더리움 네임 서비스 (ENS) 의 창립자이자 수석 개발자이고,
 트위터를 확인해보면, 꽤 활발하게 활동하고 있습니다. 항상 한발 앞서 있으며, 뉴질랜드 출신입니다.
 
-프록시는 솔리디티 버전의 경우 함수 가시성 지정자와 실제 프래그마라인이 필요하기 때문에, 솔리디티 0.4.0 (또는 유사 버전)으로 작성되었습니다. 따라서, 아래의 코드는 동일한 스마트 컨트랙트를 솔리디티 0.8.1 버전으로 포팅하고 주석과 대체 메서드를 제거해 실제 스마트 컨트랙트를 대체할 수 있도록 공개한 버전입니다. 이는 거버넌스나 제어 기능이 없는 단순화된 버전의 업그레이드 아키텍처를 보여줄 뿐입니다. ([코드](../codes/3_first_proxy_1.sol))
+프록시는 솔리디티 버전의 경우 함수 가시성 지정자와 실제 프래그마라인이 필요하기 때문에, 솔리디티 0.4.0 (또는 유사 버전)으로 작성되었습니다. 따라서, 아래의 코드는 동일한 스마트 컨트랙트를 솔리디티 0.8.1 버전으로 포팅하고 주석과 대체 메서드를 제거해 실제 스마트 컨트랙트를 대체할 수 있도록 공개한 버전입니다. 이는 거버넌스나 제어 기능이 없는 단순화된 버전의 업그레이드 아키텍처를 보여줄 뿐입니다. ([코드](/assets/codes/3_first_proxy_1.sol))
 
 ```solidity
 //SPDX-License-Identifier: No-Idea!
@@ -119,7 +119,7 @@ Example-Dispatcher 컨트랙트에서, Uint를 설정하고, Uint를 받습니�
 
 (/assets/images/first_proxy_1.png)
 
-`delegatecall` op-code는 Example 컨트랙트를 Dispatcher로 이동하고, Dispatcher Storage를 사용합니다. getUint() 에서 uint * 2 결과를 반환하는 스마트 컨트랙트로 업그레이드 하고 싶다고 가정해 보겠습니다. ([코드](../codes/3_first_proxy_2.sol))
+`delegatecall` op-code는 Example 컨트랙트를 Dispatcher로 이동하고, Dispatcher Storage를 사용합니다. getUint() 에서 uint * 2 결과를 반환하는 스마트 컨트랙트로 업그레이드 하고 싶다고 가정해 보겠습니다. ([코드](/assets/codes/3_first_proxy_2.sol))
 
 ```solidity
 //SPDX-License-Identifier: No-Idea!
