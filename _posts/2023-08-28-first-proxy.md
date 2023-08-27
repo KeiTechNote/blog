@@ -13,7 +13,7 @@ tags: [BlockChain, Dev, Smart Contract, Proxy, Upgradeable Smart Contract]
 (제가 알기로는) 최초로 제안된 프록시는 닉 존슨이 제안했습니다. 잘 모르시는 분들을 위해 소개하자면, 그는 이더리움 네임 서비스 (ENS) 의 창립자이자 수석 개발자이고,
 트위터를 확인해보면, 꽤 활발하게 활동하고 있습니다. 항상 한발 앞서 있으며, 뉴질랜드 출신입니다.
 
-프록시는 솔리디티 버전의 경우 함수 가시성 지정자와 실제 프래그마라인이 필요하기 때문에, 솔리디티 0.4.0 (또는 유사 버전)으로 작성되었습니다. 따라서, 아래의 코드는 동일한 스마트 컨트랙트를 솔리디티 0.8.1 버전으로 포팅하고 주석과 대체 메서드를 제거해 실제 스마트 컨트랙트를 대체할 수 있도록 공개한 버전입니다. 이는 거버넌스나 제어 기능이 없는 단순화된 버전의 업그레이드 아키텍처를 보여줄 뿐입니다. ([코드](https://github.com/KeiTechNote/blog/blob/main/_posts/_codes/3_first_proxy_1.sol))
+프록시는 솔리디티 버전의 경우 함수 가시성 지정자와 실제 프래그마라인이 필요하기 때문에, 솔리디티 0.4.0 (또는 유사 버전)으로 작성되었습니다. 따라서, 아래의 코드는 동일한 스마트 컨트랙트를 솔리디티 0.8.1 버전으로 포팅하고 주석과 대체 메서드를 제거해 실제 스마트 컨트랙트를 대체할 수 있도록 공개한 버전입니다. 이는 거버넌스나 제어 기능이 없는 단순화된 버전의 업그레이드 아키텍처를 보여줄 뿐입니다. ([코드](https://github.com/KeiTechNote/blog/blob/main/_codes/3_first_proxy_1.sol))
 
 ```solidity
 //SPDX-License-Identifier: No-Idea!
@@ -189,12 +189,12 @@ contract Example is Upgradeable {
 1. getUint() 가 value * 2 를 반환하도록 Example 컨트랙트를 업데이트합니다. 
 
 2. Example 컨트랙트를 배포합니다. 
-[!remix_ide_5](https://github.com/KeiTechNote/blog/blob/main/_images/3_first_proxy_remix_ide_5.png)
+![remix_ide_5](https://github.com/KeiTechNote/blog/blob/main/_images/3_first_proxy_remix_ide_5.png)
 
 3. 배포된 Example 컨트랙트 주소를 복사합니다. 
 
 4. 새로운 Example 컨트랙트 주소로 Dispatcher 의 `replace`를 호출합니다. 
-[!remix_ide_6](https://github.com/KeiTechNote/blog/blob/main/_images/3_first_proxy_remix_ide_6.png)
-[!remix_ide_7](https://github.com/KeiTechNote/blog/blob/main/_images/3_first_proxy_remix_ide_7.png)
+![remix_ide_6](https://github.com/KeiTechNote/blog/blob/main/_images/3_first_proxy_remix_ide_6.png)
+![remix_ide_7](https://github.com/KeiTechNote/blog/blob/main/_images/3_first_proxy_remix_ide_7.png)
 
 내부적으로는 많은 일들이 일어나며 Proxy 가 동작하는 방식입니다. 하지만 Dispatcher 를 사용하는 모든 컨트랙트의 업그레이드 가능한 스마트 컨트랙트에서 확장해야 하며, 그렇지 않으면 Storage Collisions 이 발생할 수 있다는 단점이 있습니다. 
