@@ -93,13 +93,17 @@ contract Example is Upgradeable {
 
 즉, 대상 컨트랙트 주소에서 대상 컨트랙트의 코드를 실행하는 대신, 대상을 호출한 컨트랙트에서 대상 컨트랙트의 코드를 실행합니다. 실제 코드를 Remix IDE 에서 실행해서 그 과정을 살펴보면 알 수 있을 것입니다. 
 
-1. Example 컨트랙트를 배포합니다. 
+1. Example 컨트랙트를 배포합니다.
+
 <a href="/_images/3_first_proxy_remix_ide_1.png" target="_blank"><img src="/_images/3_first_proxy_remix_ide_1.png" width="70%"></a>
 
 2. Example 컨트랙트 주소로 Dispatcher 컨트랙트를 배포합니다. 
+
 <a href="/_images/3_first_proxy_remix_ide_2.png" target="_blank"><img src="/_images/3_first_proxy_remix_ide_2.png" width="70%"></a>
 
 3. Example 컨트랙트가 이제 Dispatcher 주소에서 실행중이라고 Remix에 알립니다. 
+
+<a href="/_images/3_first_proxy_remix_ide_3.png" target="_blank"><img src="/_images/3_first_proxy_remix_ide_3.png" width="70%"></a>
 
 ```
 스토리지 위치
@@ -188,13 +192,16 @@ contract Example is Upgradeable {
 
 1. getUint() 가 value * 2 를 반환하도록 Example 컨트랙트를 업데이트합니다. 
 
-2. Example 컨트랙트를 배포합니다. 
+2. Example 컨트랙트를 배포합니다.
+
 ![remix_ide_5](https://github.com/KeiTechNote/blog/blob/main/_images/3_first_proxy_remix_ide_5.png)
 
 3. 배포된 Example 컨트랙트 주소를 복사합니다. 
 
-4. 새로운 Example 컨트랙트 주소로 Dispatcher 의 `replace`를 호출합니다. 
+4. 새로운 Example 컨트랙트 주소로 Dispatcher 의 `replace`를 호출합니다.
+
 ![remix_ide_6](https://github.com/KeiTechNote/blog/blob/main/_images/3_first_proxy_remix_ide_6.png)
+
 ![remix_ide_7](https://github.com/KeiTechNote/blog/blob/main/_images/3_first_proxy_remix_ide_7.png)
 
 내부적으로는 많은 일들이 일어나며 Proxy 가 동작하는 방식입니다. 하지만 Dispatcher 를 사용하는 모든 컨트랙트의 업그레이드 가능한 스마트 컨트랙트에서 확장해야 하며, 그렇지 않으면 Storage Collisions 이 발생할 수 있다는 단점이 있습니다. 
