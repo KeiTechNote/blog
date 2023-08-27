@@ -88,7 +88,7 @@ contract Example is Upgradeable {
 
 > 솔리디티 문서 내 DelegateCall 
 >
-> 메시지 호출의 특별 버전인 delegatecall 은 대상 주소의 코드가 호출한 컨트랙트 컨텍스트에서 실행되고 msg.sender 와 msg.value 가 변경되지 않는다는 점을 제외하면 메시지 호출과 동일하다. {: .prompt-info }
+> 메시지 호출의 특별 버전인 delegatecall 은 대상 주소의 코드가 호출한 컨트랙트 컨텍스트에서 실행되고 msg.sender 와 msg.value 가 변경되지 않는다는 점을 제외하면 메시지 호출과 동일하다. `{: .prompt-info }`
 
 즉, 대상 컨트랙트 주소에서 대상 컨트랙트의 코드를 실행하는 대신, 대상을 호출한 컨트랙트에서 대상 컨트랙트의 코드를 실행합니다. 실제 코드를 Remix IDE 에서 실행해서 그 과정을 살펴보면 알 수 있을 것입니다. 
 
@@ -104,9 +104,11 @@ contract Example is Upgradeable {
 
 ![remix_ide_3](/assets/images/3_first_proxy_remix_ide_3.png)
 
-> 스토리지 위치
+> Storage 위치 {: .prompt-info }
 > 
-> (주의) 업그레이드 가능한 컨트랙트의 대상 주소가 Storage Slot0 에 있기 때문에 이 구현만 작동합니다. 다른 구현이 왜 mload(0x40) 을 사용하는지, 여기서 Storage Pointer 에 어떤 일이 일어나는지 궁긍하다면, OpenZeppelin 의 [가이드 문서](https://blog.openzeppelin.com/proxy-patterns) 를 확인하기 바랍니다. {: .prompt-info }
+> (주의) 업그레이드 가능한 컨트랙트의 대상 주소가 Storage Slot0 에 있기 때문에 이 구현만 작동합니다. 다른 구현이 왜 mload(0x40) 을 사용하는지, 여기서 Storage Pointer 에 어떤 일이 일어나는지 궁긍하다면, OpenZeppelin 의 [가이드 문서](https://blog.openzeppelin.com/proxy-patterns) 를 확인하기 바랍니다. 
+
+{: .prompt-info 테스트}
 
 Example-Dispatcher 컨트랙트에서, Uint를 설정하고, Uint를 받습니다. 변수가 정확하게 저장되지만, Dispatcher는 setUint, getUint 함수를 알지 못합니다. 또한, Example 에서 상송하지도 않습니다. 
 
@@ -187,15 +189,15 @@ contract Example is Upgradeable {
 
 `replace` 메소드를 사용해 로직 컨트랙트를 업그레이드하는 방법입니다.
 
-1. getUint() 가 value * 2 를 반환하도록 Example 컨트랙트를 업데이트합니다. 
+* getUint() 가 value * 2 를 반환하도록 Example 컨트랙트를 업데이트합니다. 
 
-2. Example 컨트랙트를 배포합니다.
+* Example 컨트랙트를 배포합니다.
 
 ![remix_ide_5](/assets/images/3_first_proxy_remix_ide_5.png)
 
-3. 배포된 Example 컨트랙트 주소를 복사합니다. 
+* 배포된 Example 컨트랙트 주소를 복사합니다. 
 
-4. 새로운 Example 컨트랙트 주소로 Dispatcher 의 `replace`를 호출합니다.
+* 새로운 Example 컨트랙트 주소로 Dispatcher 의 `replace`를 호출합니다.
 
 ![remix_ide_6](/assets/images/3_first_proxy_remix_ide_6.png)
 
