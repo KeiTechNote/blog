@@ -1,3 +1,10 @@
+---
+title: 업그레이드 가능한 스마트 컨트랙트 (1) - First Proxy
+date: 2023-08-28 05:30 +09:00
+categories: [BlockChain]
+tags: [BlockChain, Dev, Smart Contract, Proxy, Upgradeable Smart Contract]
+---
+
 ## First Proxy (번역_한글)
 - 원문/출처 : https://ethereum-blockchain-developer.com/110-upgrade-smart-contracts/05-proxy-nick-johnson/
 
