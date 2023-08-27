@@ -94,7 +94,7 @@ contract Example is Upgradeable {
 즉, 대상 컨트랙트 주소에서 대상 컨트랙트의 코드를 실행하는 대신, 대상을 호출한 컨트랙트에서 대상 컨트랙트의 코드를 실행합니다. 실제 코드를 Remix IDE 에서 실행해서 그 과정을 살펴보면 알 수 있을 것입니다. 
 
 1. Example 컨트랙트를 배포합니다. 
-![remix_ide_1](https://github.com/KeiTechNote/blog/blob/main/_images/3_first_proxy_remix_ide_1.png)
+![remix_ide_1](../_images/3_first_proxy_remix_ide_1.png)
 
 2. Example 컨트랙트 주소로 Dispatcher 컨트랙트를 배포합니다. 
 ![remix_ide_2](https://github.com/KeiTechNote/blog/blob/main/_images/3_first_proxy_remix_ide_2.png)
