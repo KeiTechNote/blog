@@ -109,7 +109,7 @@ contract Example is Upgradeable {
 > 
 > (주의) 업그레이드 가능한 컨트랙트의 대상 주소가 Storage Slot0 에 있기 때문에 이 구현만 작동합니다. 다른 구현이 왜 mload(0x40) 을 사용하는지, 여기서 Storage Pointer 에 어떤 일이 일어나는지 궁긍하다면, OpenZeppelin 의 [가이드 문서](https://blog.openzeppelin.com/proxy-patterns) 를 확인하기 바랍니다. 
 
-Example-Dispatcher 컨트랙트에서, Uint를 설정하고, Uint를 받습니다. 변수가 정확하게 저장되지만, Dispatcher는 setUint, getUint 함수를 알지 못합니다. 또한, Example 에서 상송하지도 않습니다. 
+Example-Dispatcher 컨트랙트에서, Uint를 설정하고, Uint를 받습니다. 변수가 정확하게 저장되지만, Dispatcher는 setUint, getUint 함수를 알지 못합니다. 또한, Example 에서 상속하지도 않습니다. 
 
 ![remix_ide_4](/assets/images/3_first_proxy_remix_ide_4.png)
 
@@ -203,3 +203,15 @@ contract Example is Upgradeable {
 ![remix_ide_7](/assets/images/3_first_proxy_remix_ide_7.png)
 
 내부적으로는 많은 일들이 일어나며 Proxy 가 동작하는 방식입니다. 하지만 Dispatcher 를 사용하는 모든 컨트랙트의 업그레이드 가능한 스마트 컨트랙트에서 확장해야 하며, 그렇지 않으면 Storage Collisions 이 발생할 수 있다는 단점이 있습니다. 
+
+---
+### 정리
+* Proxy 는 DelegateCall 을 사용한다. 
+* DelegateCall 에 사용되는, 업그레이드 가능한 컨트랙트 주소는 Storage Slot 0 에 저장한다.
+* Storage Slot 0 에 주소를 저장함에 따라 Storage Collisions 이 발생할 수 있다. 
+
+---
+### 참고
+* 샘플코드
+    - [3_first_proxy_1.sol](https://github.com/KeiTechNote/blog/tree/main/codes/3_first_proxy_1.sol)
+    - [3_first_proxy_2.sol](https://github.com/KeiTechNote/blog/tree/main/codes/3_first_proxy_2.sol)
