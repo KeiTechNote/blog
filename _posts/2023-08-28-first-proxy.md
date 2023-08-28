@@ -95,15 +95,18 @@ contract Example is Upgradeable {
 
 * Example 컨트랙트를 배포합니다.
 
-![remix_ide_1](/assets/images/3_first_proxy_remix_ide_1.png)
+![remix_ide_1](/assets/images/3_first_proxy_remix_ide_1.png){: .shadow }
+_Example 컨트랙트 배포_
 
 * Example 컨트랙트 주소로 Dispatcher 컨트랙트를 배포합니다. 
 
-![remix_ide_2](/assets/images/3_first_proxy_remix_ide_2.png)
+![remix_ide_2](/assets/images/3_first_proxy_remix_ide_2.png){: .shadow }
+_Dispatcher 컨트랙트 배포_
 
 * Example 컨트랙트가 이제 Dispatcher 주소에서 실행중이라고 Remix에 알립니다. 
 
-![remix_ide_3](/assets/images/3_first_proxy_remix_ide_3.png)
+![remix_ide_3](/assets/images/3_first_proxy_remix_ide_3.png){: .shadow }
+_Example 컨트랙트 주소 전달_
 
 > Storage 위치
 > 
@@ -111,11 +114,13 @@ contract Example is Upgradeable {
 
 Example-Dispatcher 컨트랙트에서, Uint를 설정하고, Uint를 받습니다. 변수가 정확하게 저장되지만, Dispatcher는 setUint, getUint 함수를 알지 못합니다. 또한, Example 에서 상속하지도 않습니다. 
 
-![remix_ide_4](/assets/images/3_first_proxy_remix_ide_4.png)
+![remix_ide_4](/assets/images/3_first_proxy_remix_ide_4.png){: .shadow }
+_정상 동작 확인_
 
 이는 기본적으로 Dispacher를 Storage처럼 사용하지만, Example 컨트랙트에 저장된 로직을 사용하여 일어나는 일을 제외합니다. Dispatcher가 Example 컨트랙트와 "대화"하는 대신, Example 컨트랙트 코드가 Dispatcher 범위로 이동해 실행하고, Dispatcher Storage를 변경합니다. 이는 이전의 Eternal Storage 패턴과의 큰 차이점입니다. 
 
-![action_flow](/assets/images/first_proxy_1.png)
+![action_flow](/assets/images/first_proxy_1.png){: .shadow }
+_동작 흐름_
 
 `delegatecall` op-code는 Example 컨트랙트를 Dispatcher로 이동하고, Dispatcher Storage를 사용합니다. getUint() 에서 uint * 2 결과를 반환하는 스마트 컨트랙트로 업그레이드 하고 싶다고 가정해 보겠습니다.
 
@@ -192,15 +197,18 @@ contract Example is Upgradeable {
 
 * Example 컨트랙트를 배포합니다.
 
-![remix_ide_5](/assets/images/3_first_proxy_remix_ide_5.png)
+![remix_ide_5](/assets/images/3_first_proxy_remix_ide_5.png){: .shadow }
+_수정된 Example 컨트랙트 재배포_
 
 * 배포된 Example 컨트랙트 주소를 복사합니다. 
 
 * 새로운 Example 컨트랙트 주소로 Dispatcher 의 `replace`를 호출합니다.
 
-![remix_ide_6](/assets/images/3_first_proxy_remix_ide_6.png)
+![remix_ide_6](/assets/images/3_first_proxy_remix_ide_6.png){: .shadow }
+_정상 동작 확인(1)_
 
-![remix_ide_7](/assets/images/3_first_proxy_remix_ide_7.png)
+![remix_ide_7](/assets/images/3_first_proxy_remix_ide_7.png){: .shadow }
+_정상 동작 확인(2)_
 
 내부적으로는 많은 일들이 일어나며 Proxy 가 동작하는 방식입니다. 하지만 Dispatcher 를 사용하는 모든 컨트랙트의 업그레이드 가능한 스마트 컨트랙트에서 확장해야 하며, 그렇지 않으면 Storage Collisions 이 발생할 수 있다는 단점이 있습니다. 
 
