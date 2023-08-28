@@ -77,5 +77,5 @@ Storage 스마트 컨트랙트는 변경하지 않았으므로, 재배포할 필
 ---
 ### 참고
 * 샘플 코드
-    - [Eternal Storage 1](/assets/codes/2_eternal_storage_1.sol)
-    - [Eternal Storage 2](/assets/codes/2_eternal_storage_2.sol)
+    - [Eternal Storage 1](/codes/2_eternal_storage_1.sol)
+    - [Eternal Storage 2](/codes/2_eternal_storage_2.sol)
