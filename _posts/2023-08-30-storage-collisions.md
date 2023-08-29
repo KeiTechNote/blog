@@ -71,7 +71,8 @@ contract ProxyClash {
 3. LostStorage 컨트랙트가 ProxyCrash 컨트랙트 주소에서 실행중이라고 Remix IDE 에 알립니다. 
 4. LostStorage 컨트랙트의 myAddress() 를 호출합니다. 놀랍게도, 0 이 아닌 주소가 반환됩니다. 충돌이 발생합니다. 
 
-![remix_ide_1](/assets/images/4_storage_collisions_1.png)
+![remix_ide_1](/assets/images/4_storage_collisions_1.png){: .shadow }
+_Storage Collisions 확인_
 
 이것이 솔리디티 컴파일러가 Storage Slot 이 어디에 사용되는지 알 수 있도록, Storage 컨트랙트로 상속을 수행하는 이유입니다. 그리고 나중에 이에 대한 해결책이 있다는 것을 알게 될 것 입니다. 
 
