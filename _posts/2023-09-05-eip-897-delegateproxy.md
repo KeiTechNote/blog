@@ -27,12 +27,12 @@ tags: [BlockChain, Dev, Smart Contract, Proxy, Upgradeable Smart Contract, Solid
 
 
 ### 표준 인터페이스 
-{% raw %}
+```
 interface ERCProxy {
     function proxyType() public pure returns (uint256 proxyTypeId);
     function implementation() public view returns (address codeAddr);
 }
-{% endraw %}
+```
 
 
 #### Proxy Type (proxyType())
