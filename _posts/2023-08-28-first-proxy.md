@@ -15,7 +15,7 @@ tags: [BlockChain, Dev, Smart Contract, Proxy, Upgradeable Smart Contract, Solid
 
 프록시는 솔리디티 버전의 경우 함수 가시성 지정자와 실제 프래그마라인이 필요하기 때문에, 솔리디티 0.4.0 (또는 유사 버전)으로 작성되었습니다. 따라서, 아래의 코드는 동일한 스마트 컨트랙트를 솔리디티 0.8.1 버전으로 포팅하고 주석과 대체 메서드를 제거해 실제 스마트 컨트랙트를 대체할 수 있도록 공개한 버전입니다. 이는 거버넌스나 제어 기능이 없는 단순화된 버전의 업그레이드 아키텍처를 보여줄 뿐입니다.
 
-```solidity
+```
 //SPDX-License-Identifier: No-Idea!
 pragma solidity 0.8.1;
 
