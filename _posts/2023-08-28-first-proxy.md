@@ -223,3 +223,7 @@ _정상 동작 확인(2)_
 * 샘플코드
     - [3_first_proxy_1.sol](https://github.com/KeiTechNote/blog/tree/main/codes/3_first_proxy_1.sol)
     - [3_first_proxy_2.sol](https://github.com/KeiTechNote/blog/tree/main/codes/3_first_proxy_2.sol)
+
+---
+### 관련 Posts
+1. [First Proxy](/_posts/2023-08-28-first-proxy.md) 

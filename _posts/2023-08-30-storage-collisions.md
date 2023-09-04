@@ -87,3 +87,8 @@ _Storage Collisions 확인_
 ### 참고
 * 샘플코드
     - [Storage Collisions](https://github.com/KeiTechNote/blog/tree/main/codes/4_storage_collisions.sol)
+
+---
+### 관련 Posts
+1. [First Proxy](/_posts/2023-08-28-first-proxy.md) 
+2. [Eternal Storage Without Proxy](/_posts/2023-08-29-eternal-storage-without-proxy.md)

@@ -85,3 +85,4 @@ Storage 스마트 컨트랙트는 변경하지 않았으므로, 재배포할 필
 * 샘플 코드
     - [Eternal Storage 1](https://github.com/KeiTechNote/blog/tree/main/codes/2_eternal_storage_1.sol)
     - [Eternal Storage 2](https://github.com/KeiTechNote/blog/tree/main/codes/2_eternal_storage_2.sol)
+

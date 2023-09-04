@@ -54,3 +54,10 @@ interface ERCProxy {
 
 ### 저작권
 [CC0](https://eips.ethereum.org/LICENSE)를 통해 저작권 및 관련 권리가 면제됩니다.
+
+---
+### 관련 Posts
+1. [First Proxy](/_posts/2023-08-28-first-proxy.md) 
+2. [Eternal Storage Without Proxy](/_posts/2023-08-29-eternal-storage-without-proxy.md)
+3. [Storage Collisions](/_posts/2023-08-30-storage-collisions.md)
+4. [ERC-897 Proxy](/_posts/2023-09-05-erc-897-proxy.md)
