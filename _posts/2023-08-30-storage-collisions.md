@@ -90,5 +90,5 @@ _Storage Collisions 확인_
 
 ---
 ### 관련 Posts
-1. [First Proxy](https://github.com/KeiTechNote/blog/tree/main/posts/2023-08-28-first-proxy.md) 
-2. [Eternal Storage Without Proxy](https://github.com/KeiTechNote/blog/tree/main/posts/2023-08-29-eternal-storage-without-proxy.md)
+1. [Eternal Storage Without Proxy](https://keitechnote.github.io/blog/posts/eternal-storage-without-proxy/)
+2. [First Proxy](https://keitechnote.github.io/blog/posts/first-proxy/) 

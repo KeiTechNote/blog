@@ -37,9 +37,9 @@ Beacon 컨트랙트의 핵심은 `재사용` 입니다. 동일한 Logic 컨트�
 
 ---
 ### 관련 Posts
-1. [First Proxy](https://github.com/KeiTechNote/blog/tree/main/posts/2023-08-28-first-proxy.md) 
-2. [Eternal Storage Without Proxy](https://github.com/KeiTechNote/blog/tree/main/posts/2023-08-29-eternal-storage-without-proxy.md)
-3. [Storage Collisions](https://github.com/KeiTechNote/blog/tree/main/posts/2023-08-30-storage-collisions.md)
-4. [ERC-897 Proxy](https://github.com/KeiTechNote/blog/tree/main/posts/2023-09-05-erc-897-proxy.md)
-5. [EIP-897 DelegateProxy](https://github.com/KeiTechNote/blog/tree/main/posts/2023-09-05-eip-897-delegateproxy.md)
-6. [Proxies Without Storage Collisions Without Common Storage Contracts](https://github.com/KeiTechNote/blog/tree/main/posts/2023-09-05-proxies-without-storage-collisions-without-common-storage-contracts.md)
+1. [Eternal Storage Without Proxy](https://keitechnote.github.io/blog/posts/eternal-storage-without-proxy/)
+2. [First Proxy](https://keitechnote.github.io/blog/posts/first-proxy/) 
+3. [Storage Collisions](https://keitechnote.github.io/blog/posts/storage-collisions/)
+4. [ERC-897 Proxy](https://keitechnote.github.io/blog/posts/erc-897-proxy/)
+5. [EIP-897 DelegateProxy](https://keitechnote.github.io/blog/posts/eip-897-delegateproxy/)
+6. [Proxies Without Storage Collisions Without Common Storage Contracts](https://keitechnote.github.io/blog/posts/proxies-without-storage-collisions-without-common-storage-contracts/)
