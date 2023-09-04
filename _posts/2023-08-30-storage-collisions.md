@@ -14,7 +14,7 @@ tags: [BlockChain, Dev, Smart Contract, Proxy, Upgradeable Smart Contract, Solid
 
 이 [storage collisions 코드](https://github.com/KeiTechNote/blog/tree/main/codes/4_storage_collisions.sol) 를 Remix IDE 에 붙여넣습니다. 
 
-```solidity
+```
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.1;
 

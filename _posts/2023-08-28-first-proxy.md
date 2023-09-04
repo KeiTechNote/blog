@@ -124,7 +124,7 @@ _동작 흐름_
 
 `delegatecall` op-code는 Example 컨트랙트를 Dispatcher로 이동하고, Dispatcher Storage를 사용합니다. getUint() 에서 uint * 2 결과를 반환하는 스마트 컨트랙트로 업그레이드 하고 싶다고 가정해 보겠습니다.
 
-```solidity
+```
 //SPDX-License-Identifier: No-Idea!
 pragma solidity 0.8.1;
 
