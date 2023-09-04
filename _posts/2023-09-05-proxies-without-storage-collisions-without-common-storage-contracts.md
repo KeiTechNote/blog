@@ -140,8 +140,8 @@ _전체 과정_
 
 ---
 ### 관련 Posts
-1. [First Proxy](/_posts/2023-08-28-first-proxy.md) 
-2. [Eternal Storage Without Proxy](/_posts/2023-08-29-eternal-storage-without-proxy.md)
-3. [Storage Collisions](/_posts/2023-08-30-storage-collisions.md)
-4. [ERC-897 Proxy](/_posts/2023-09-05-erc-897-proxy.md)
-5. [EIP-897 DelegateProxy](/_posts/2023-09-05-eip-897-delegateproxy.md)
+1. [First Proxy](https://github.com/KeiTechNote/blog/tree/main/posts/2023-08-28-first-proxy.md) 
+2. [Eternal Storage Without Proxy](https://github.com/KeiTechNote/blog/tree/main/posts/2023-08-29-eternal-storage-without-proxy.md)
+3. [Storage Collisions](https://github.com/KeiTechNote/blog/tree/main/posts/2023-08-30-storage-collisions.md)
+4. [ERC-897 Proxy](https://github.com/KeiTechNote/blog/tree/main/posts/2023-09-05-erc-897-proxy.md)
+5. [EIP-897 DelegateProxy](https://github.com/KeiTechNote/blog/tree/main/posts/2023-09-05-eip-897-delegateproxy.md)
