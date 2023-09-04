@@ -226,4 +226,4 @@ _정상 동작 확인(2)_
 
 ---
 ### 관련 Posts
-1. [First Proxy](/_posts/2023-08-28-first-proxy.md) 
+1. [First Proxy](https://github.com/KeiTechNote/blog/tree/main/posts/2023-08-28-first-proxy.md) 
