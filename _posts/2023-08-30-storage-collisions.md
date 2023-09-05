@@ -1,6 +1,7 @@
 ---
 title: 업그레이드 가능한 스마트 컨트랙트 (3) - Storage Collisions
 date: 2023-08-30 05:30 +09:00
+published: true
 categories: [BlockChain]
 tags: [BlockChain, Dev, Smart Contract, Proxy, Upgradeable Smart Contract, Solidity, 번역]
 ---
