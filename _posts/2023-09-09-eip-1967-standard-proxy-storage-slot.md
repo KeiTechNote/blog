@@ -24,11 +24,11 @@ Beacon 컨트랙트의 핵심은 `재사용` 입니다. 동일한 Logic 컨트�
 
 따라서, Beacon 을 사용하는 경우, 실제 Logic 컨트랙트의 주소를 반환하는 또 다른 스마트 컨트랙트 레이어가 중간에 존재하게 됩니다. 
 
-정말 좋은 샘플 구현은 [오픈제플린의 리포지토리](https://github.com/OpenZeppelin/openzeppelin-sdk/blob/dc9e4edf1169eb8bd675961c9d821d1a712a70df/packages/lib/contracts/upgradeability/BaseAdminUpgradeabilityProxy.sol)에서 사용됩니다.
+구현된 가장 좋은 샘플은 [오픈제플린의 레포지토리](https://github.com/OpenZeppelin/openzeppelin-sdk/blob/dc9e4edf1169eb8bd675961c9d821d1a712a70df/packages/lib/contracts/upgradeability/BaseAdminUpgradeabilityProxy.sol)를 참고하기 바랍니다. 
 
 이는 네임스페이스가 명확하게 정의되어 있을 뿐 기본적으로 EIP-1822와 동일한 기능이므로, 이 시점에서는 이전 설명에서 했던 예제를 참조하겠습니다.
 
-이전과 같은 실험을 반복하는 대신 다른 패턴에 대해 이야기하고 싶습니다: 다이아몬드 저장 패턴입니다.
+이제 Diamond Storage 패턴에 대해 살펴보겠습니다. 
 
 
 ---
