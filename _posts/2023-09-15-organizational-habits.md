@@ -3,7 +3,7 @@ title: 월 1억버는 일정정리 습관
 date: 2023-09-16 05:30 +09:00
 published: true
 categories: [Review]
-tags: [Self-development, 주언규, habits]
+tags: [Youtube, Self-development, 주언규, habits]
 ---
 
 - 원문/출처 : https://youtu.be/TuMZDSWj9og?si=GSIl99CsuoZRhT-R
