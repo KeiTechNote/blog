@@ -1,5 +1,5 @@
 ---
-title: 업그레이드 가능한 스마트 컨트랙트 (10) - Metamorphosis Smart Contracts using CREATE2
+title: 업그레이드 가능한 스마트 컨트랙트 (9) - Metamorphosis Smart Contracts using CREATE2
 date: 2023-09-10 00:30 +09:00
 published: true
 categories: [BlockChain]
