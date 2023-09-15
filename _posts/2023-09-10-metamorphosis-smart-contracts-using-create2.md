@@ -335,8 +335,7 @@ Token 컨트랙트나 DeFi 프로젝트라고 가정해 봅시다. 사람들이 
 5. [EIP-897 : DelegateProxy](https://keitechnote.github.io/blog/posts/eip-897-delegateproxy/)
 6. [Proxies Without Storage Collisions Without Common Storage Contracts](https://keitechnote.github.io/blog/posts/proxies-without-storage-collisions-without-common-storage-contracts/)
 7. [EIP-1967 : Standard Proxy Storage Slot](https://keitechnote.github.io/blog/posts/eip-1967-standard-proxy-storage-slot/)
-8. [EIP-1538: Transparent Contract Standard]()
-9. [EIP-2535: Diamond Standard]()
+8. [EIP-2535: Diamond Standard]()
 
 
 [Metamorphic]: https://github.com/0age/metamorphic
