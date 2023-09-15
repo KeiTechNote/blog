@@ -1,5 +1,5 @@
 ---
-title: 웗억버는 일정정리 습관
+title: 월 1억버는 일정정리 습관
 date: 2023-09-16 05:30 +09:00
 published: true
 categories: [Review]
