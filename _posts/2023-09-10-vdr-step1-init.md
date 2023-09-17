@@ -60,6 +60,7 @@ _NodeJS 버전 확인_
 _터미널 환경에서 TruffleSuite 설치_
 
 > TruffleSuite 설치 명령어 중 `-g` 옵션은 `global` 의 약자입니다. npm 을 통해 설치하는 프로그램, 라이브러리들은 npm 명령어를 실행한 폴더에서만 사용하는 방식과 어디서든 사용할 수 있는 방식 두가지로 나뉜니다. truffle 의 경우 -g 옵셥을 통해 어디서든 사용할 수 있도록 했습니다. Prolog 에서 설명한 충돌 가능성에 대한 부분과 일맥상통하며 이는 Truffle을 사용하는 다양한 개발 환경을 어디서든 구성하고 사용할 수 있음을 의미합니다. 
+{: .prompt-info}
 
 설치가 정상적으로 완료되었다면, 버전 정보 출력을 통해 정상 실행여부를 확인합니다. 
 
@@ -90,13 +91,9 @@ _Ganache-Cli 설치_
 _Ganache-Cli 실행_
 
 > 공식 ReadMe 파일을 살펴보면, `ganache` 명령어로 실행하도록 되어 있으나 ganache 는 GUI 버전 실행 명령어이므로 CLI 버전은 `ganache-cli`명령어로 실행해야합니다.  
-
+{: .prompt-info}
 
 지금까지 `VSCode + TruffleSuite + Ganache-Cli`의 개발환경을 구성해 보았습니다. 
-
----
-### 정리
-* 
 
 ---
 ### 참고
