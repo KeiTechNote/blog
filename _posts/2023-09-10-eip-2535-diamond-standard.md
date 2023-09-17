@@ -14,7 +14,7 @@ tags: [BlockChain, Dev, Smart Contract, Proxy, Upgradeable Smart Contract, Solid
 
 Diamond Standard 는 EIP-1538 을 개선한 것입니다. 전체 컨트랙트를 Proxy 하는 대신, delegatecall 을 위한 주소만을 매핑하는 기존의 아이디어와 동일합니다. 
 
-Diamond Standard 의 중요한 부분은 Storage 동작입니다. Openzeppelin 이 사용하는 비정형화된 Storage 패턴과는 달리, Diamond Standard 의 Storage 는 특정 Storage Slot 에 하나의 `구조체`를 저장합디ㅏ. 
+Diamond Standard 의 중요한 부분은 Storage 동작입니다. Openzeppelin 이 사용하는 비정형화된 Storage 패턴과는 달리, Diamond Standard 의 Storage 는 특정 Storage Slot 에 하나의 `구조체`를 저장합니다. 
 
 EIP 페이지 내 코드는 다음과 같습니다. 
 ```
@@ -52,13 +52,65 @@ contract FaucetA {
 }
 ```
 
+````
+위의 원본 코드를 그대로 Remix IDE 에 붙여넣기 할 경우 오류가 발생한다. 오류를 해결한 다음 코드를 사용한다. 
+
+```
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+// A contract that implements diamond storage.
+library LibA {
+
+  // This struct contains state variables we care about.
+  struct DiamondStorage {
+    address owner;
+    bytes32 dataA;
+  }
+
+  // Returns the struct from a specified position in contract storage
+  // ds is short for DiamondStorage
+  function diamondStorage() internal pure returns(DiamondStorage storage ds) {
+    // Specifies a random position from a hash of a string
+    bytes32 storagePosition = keccak256("diamond.storage.LibA");
+    // Set the position of our struct in contract storage
+    assembly {ds.slot := storagePosition}
+  }
+}
+
+// Our facet uses the diamond storage defined above.
+contract FacetA {
+
+  function setDataA(bytes32 _dataA) external {
+    LibA.DiamondStorage storage ds = LibA.diamondStorage();
+    require(ds.owner == msg.sender, "Must be owner.");
+    ds.dataA = _dataA;
+  }
+
+  function getDataA() external view returns (bytes32) {
+    return LibA.diamondStorage().dataA;
+  }
+}
+```
+````
+
 이렇게 하면, 전체 `구조`때문에, 분리된 Storage Slot 에 있는 LibXYZ, FacetXYZ 를 원하는 만큼 가질 수 있습니다. 즉, Facet 컨트랙트가 아닌 delegatecall 을 호출하는 Proxy 컨트랙트에 저장됩니다. 
 
 그렇기 때문에, 다른 Facet 간에 Storage 를 공유할 수 있습니다. 모든 Storage Slot 은 수동으로 정의합니다. (`keccak256("diamond.storage.LibXYZ")`)
 
+
 ### Proxy 컨트랙트
 
+Diamond Standard 에서 모든 것은 Diamond 를 중심으로 동작합니다. 이 아이디어는 Diamond를 잘라 함수를 추가합니다. (또는 주소를 함수에 매핑하거나 그 반대의 경우도 마찬가지 입니다.)
+Facet과 함수를 추가하는 기능을 "diamondCut"라고 합니다. 그리고 Facet에 어떤 함수가 있는지 확인하는 기능을 루페("Loupe")라고 합니다. : 이 함수는 함수 시그니처(역: 함수명)과 주소, Facet에 대해 알고 싶은 모든 것을 반환합니다. 이 기능을 구현하는 방법은 다양합니다. Nick은 레퍼런스로 구현할 수 있는 세가지 방식을 보여주며, [Nick의 Repository][Nick_Repository]에서 확인할 수 있습니다. 
 
+먼저, migration 파일에서 스마트 컨트랙트가 어떻게 배포되었는지 확인합니다. 이를 통해 Diamond 컨트랙트를 배포할 때, DiamondCutFacet 과 DiamondLoupeFacet 의 주소와 함수 셀렉터가 제공된다는 것을 알 수 있습니다. 기본적으로 Diamond Proxy 의 일부가 됩니다. 
+
+테스트 파일을 확인해보면, 첫 번째 테스트 케이스는 주소와 시그니처 매핑을 가져오고, Diamond Proxy 로 설정되었는지 확인합니다. 121줄은 Test1Facet 과 Test2Facet 함수가 추가되었습니다. 
+
+> 최신버전의 Nick Repository를 살펴보면 번역에서 언급한 내용과 다름을 알 수 있습니다. 그 동안 스마트 컨트랙트 기술이 발전했고, 관련내용을 적용해 Diamond-1, Diamond-2, Diamond-3 으로 구분해 개별 Repository로 작성해 두었습니다. 원본 문서는 Diamond-1 을 기준으로 했으나 그 또한 원본 글이 작성된 시기와 다른 코드이므로 이 점을 감안하기 바란다. 
+{: .prompt-info}
 
 
 ### 사용해 보기
@@ -248,3 +300,6 @@ _truffle unittest 실행 후 ganache-cli 화면_
 5. [EIP-897 DelegateProxy](https://keitechnote.github.io/blog/posts/eip-897-delegateproxy/)
 6. [Proxies Without Storage Collisions Without Common Storage Contracts](https://keitechnote.github.io/blog/posts/proxies-without-storage-collisions-without-common-storage-contracts/)
 7. [EIP-1967 Standard Proxy Storage Slot](https://keitechnote.github.io/blog/posts/eip-1967-standard-proxy-storage-slot/)
+
+
+[Nick_Repository]: https://github.com/mudgen/Diamond
