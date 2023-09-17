@@ -1,45 +1,98 @@
 ---
-title: SSI 개발 환경 구성하기 - Step1 Init
-date: 2023-09-07 05:30 +09:00
+title: SSI 개발 환경 구성하기 - Step1 Init (VSCode + TruffleSuite)
+date: 2023-09-18 05:30 +09:00
 published: true
 categories: [SSI]
 tags: [BlockChain, Dev, Smart Contract, Solidity, SSI, DID, Python]
 ---
 
-[Prolog][Prolog]를 통해 SSI 개발 환경 구성을 위한 기본 프로그램을 알아봤으며 설치까지 완료했습니다. 
-개발환경 초기 세팅을 하기에 앞서 우리가 앞으로 어떤 구성을 만들지, 그리고 어디부터 만들어 갈지를 고민해 보겠습니다. 
+[Step0 - Prolog](https://keitechnote.github.io/blog/posts/vdr-step0-prolog/)를 통해 설치해야 하는 프로그램 목록과 개발환경을 위한 조합을 확인했습니다. 그 중 본 Post에서는 VSCode 와 TruffleSuite 를 조합한 개발환경을 구성해 보겠습니다. 
 
-### Verifiable Credentials LifeCycle
+- 구성환경 : VSCode + TruffleSuite + Ganache-Cli
 
-![LifeCycle](/assets/images/verifiable_credentials_lifecycle.jpg)
-_Verifiable Credentials LifeCycle (출처 : [Verifiable Credentials LifeCycle 1.0][LifeCycle_Draft])_
+### 설치 방법 - VSCode
 
-> Verifiable Credentials LifeCycle 은 본적있으며 구성원의 기본 역할은 알고 있음을 가정하고 설명됩니다. 
+VSCode 는 Microsoft에서 제공하는 개발 IDE 입니다. 무료로 공개되어 있어 누구든지 설치할 수 있으며 확장 프로그램을 통해 다양한 기능을 자유롭게 추가할 수 있는 장점이 있어 (저를 포함한) 많은 개발자들이 사용하고 있습니다. 
 
-(현재 Unofficial Draft로 분류된) Verifiable Credentials LifeCycle 입니다. 
-LifeCycle 을 구성하는 각 구성원은 Issuer, Holder, Verifier, Registry 이며 어떤 역할을 하는 구성원이든 처음 Ecosystem 에 들어오면 Registry 에 등록하는 절차부터 시작합니다. 이때, Registry 는 Credential 을 저장하고 요청시 전달하는 단순 DataBase 기능에 블록체인이 갖는 데이터 무결성까지 함께 제공해야 합니다.  
-이로 인해, SSI Ecosystem 에서 Registry 를 단순 저장 공간이 아닌 `Verifiable Data Registry (VDR)` 로 표현합니다.   
-따라서, Issuer, Holder, Verifier 를 구성하기 이전 `Registry` 부터 준비한 후 개별 구성원을 추가하겠습니다. 
+- VSCode [다운로드][VSCode_Download]
 
-### Verifiable Data Registry (VDR)
+![VSCode 다운로드](/assets/images/VSCode_Download.png)
+_OS별 VSCode 다운로드 페이지_
 
-앞서 설명한 것처럼 VDR은 "DataBase 의 기능 + 블록체인의 무결성" 이 결합된 형태입니다. 따라서, 블록체인의 무결성은 이더리움으로, DataBase의 기능은 스마트 컨트랙트와 스마트 컨트랙트에 접근할 API 서버로 대체합니다. 
+붉은 색 박스로 표시해 둔 윈도우용 VSCode 를 클릭하면 VSCode 설치파일이 다운로드됩니다. 다운로드가 완료되면 이를 실행하고 "다음" 버튼만 눌러서 설치하면 됩니다. 별도 선택할 부분은 없습니다. 
 
-이더리움 네트워크는 Mainnet과 테스트넷(Goerli, Sepolia, Rinkeby 등) 으로 구성되어 있습니다. Mainnet 이나 테스트넷 중 하나를 선택해 사용할 수 있지만, 초기 개발단계에서 테스트를 좀 더 용이하게 하기 위해 로컬 PC 에 Ganache-Cli 를 Docker 로 구성해 사용합니다. 
+설치가 완료되면 실행합니다. 다음과 같은 화면이 나온다면, 정상 설치가 완료되었습니다. 
 
-> Ganache-Cli 는 PoA 방식의 이더리움 프라이빗 네트워크로 테스트 계정 10개를 제공하며, 스마트 컨트랙트를 쉽게 배포해 동작을 확인할 수 있습니다. 
-
-![LifeCycle_Detail](/assets/images/LifeCycle_Details.svg)
-_Verifiable Credentials LifeCycle Details (출처 : [LifeCycle Details][LifeCycle_Details])
-
-(Ecosystem 이 구성됐다고 가정했을 때) Registry 는 Issuer 가 발급한 Credential 의 검증 정보를 `저장`하고 Verifier 가 검증 정보를 `조회`하고 시간이 지나 더 이상 유효하지 않을 때, `삭제` 합니다. 
+![VSCode_실행](/assets/images/VSCode_Init.png)
 
 
+### 설치 방법 - NodeJS + TruffleSuite
+
+TruffleSuite 를 설치하기 위해서는 `npm`명령어를 사용합니다. npm 은 NodeJS 에서 제공하는 *N*ode *P*ackage *M*anager입니다. 
+따라서, NodeJS 를 먼저 설치합니다. 만약 NodeJS 를 설치했다면 다음 단계로 넘어갑니다. 
 
 
+#### 1. NodeJS
+
+- NodeJS [다운로드][Node_Download]
+
+![NodeJS 다운로드](/assets/images/NodeJS_Download.png)
+_OS별 NodeJS 다운로드 페이지_
+
+VSCode와 같이 붉은 색 박스로 표시해 둔 윈도우용 NodeJS 를 클릭하면 설치파일이 다운되며, 완료시 설치하면 됩니다. 
+
+설치가 완료되면 버전 정보 출력을 통해 정상 실행여부를 확인합니다. 터미널을 실행한 후 다음의 명령어를 실행합니다. 
+명령어를 실행하는 위치는 어디든 상관없습니다. 
+
+> node --version
+
+![NodeJS 버전](/assets/images/NodeJS_Version.png)
+_NodeJS 버전 확인_
 
 
+#### 2. TruffleSuite
 
+이전에도 언급했듯 TruffleSuite 설치는 `npm`명령어를 사용합니다. 터미널에서 다음의 명령어를 실행합니다. 
+
+> npm install -g truffle
+
+![Truffle 설치](/assets/images/truffle_install.png)
+_터미널 환경에서 TruffleSuite 설치_
+
+> TruffleSuite 설치 명령어 중 `-g` 옵션은 `global` 의 약자입니다. npm 을 통해 설치하는 프로그램, 라이브러리들은 npm 명령어를 실행한 폴더에서만 사용하는 방식과 어디서든 사용할 수 있는 방식 두가지로 나뉜니다. truffle 의 경우 -g 옵셥을 통해 어디서든 사용할 수 있도록 했습니다. Prolog 에서 설명한 충돌 가능성에 대한 부분과 일맥상통하며 이는 Truffle을 사용하는 다양한 개발 환경을 어디서든 구성하고 사용할 수 있음을 의미합니다. 
+
+설치가 정상적으로 완료되었다면, 버전 정보 출력을 통해 정상 실행여부를 확인합니다. 
+
+> truffle version
+
+![Truffle 버전](/assets/images/truffle_version.png)
+_TruffleSuite 버전 확인_
+
+참고로 버전확인시 TruffleSuite는 Truffle 버전과 함께 Ganach, Solidity, Web3 가 함께 설치됐음을 알 수 있습니다. 
+
+
+### 설치 방법 - Ganache-cli
+
+Ganache 는 쉽게 Ethereum 환경을 만들 수 있도록 TruffleSuite 측에서 제공하는 프로그램입니다.
+GUI 버전과 CLI 버전을 모두 지원하고 있으며 개발환경에서는 GUI 보단 CLI 가 편리하다고 판단되어 CLI 버전을 기준으로 설명합니다. 
+Ganache-CLI 를 설치하는 방식은 TruffleSuite 와 같이 터미널에서 npm 명령어를 사용하면 됩니다.
+
+> npm install -g ganache
+
+![Ganache-Cli 설치](/assets/images/ganache_cli_install.png)
+_Ganache-Cli 설치_
+
+설치가 정상적으로 완료되었다면, 실행합니다. 다음과 같은 화면이 나온다면, 정상 설치가 완료되었습니다. 
+
+> ganache-cli
+
+![Ganache-Cli 실행](/assets/images/ganache_cli.png)
+_Ganache-Cli 실행_
+
+> 공식 ReadMe 파일을 살펴보면, `ganache` 명령어로 실행하도록 되어 있으나 ganache 는 GUI 버전 실행 명령어이므로 CLI 버전은 `ganache-cli`명령어로 실행해야합니다.  
+
+
+지금까지 `VSCode + TruffleSuite + Ganache-Cli`의 개발환경을 구성해 보았습니다. 
 
 ---
 ### 정리
@@ -47,11 +100,11 @@ _Verifiable Credentials LifeCycle Details (출처 : [LifeCycle Details][LifeCycl
 
 ---
 ### 참고
-* [(PDF) Self-Sovereign Identity as a Service : Architecture in Practice](https://arxiv.org/pdf/2205.08314.pdf)
-* [(Youtube) Verifiable Credentials 101 for SSI with Tyler Ruff](https://youtu.be/6O_iJnhIh5o?si=fmru4N7QEwIuCwqz)
+* [Step0 - Prolog](https://keitechnote.github.io/blog/posts/vdr-step0-prolog/)
+* [(Official) TruffleSuite 설치방법](https://trufflesuite.com/docs/truffle/how-to/install/)
+* [(Official) Ganache-Cli 설치방법](https://github.com/trufflesuite/ganache#readme)
 
 
 [Prolog]: https://keitechnote.github.io/blog/posts/vdr-step0-prolog
-[LifeCycle_Draft]: https://w3c-ccg.github.io/vc-lifecycle/
-[LifeCycle_Details]: https://www.w3.org/TR/vc-data-model/#lifecycle-details
-
+[VSCode_Download]: https://code.visualstudio.com/download
+[Node_Download]: https://nodejs.org/ko/download
