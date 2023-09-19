@@ -16,6 +16,11 @@ Diamond Standard 는 EIP-1538 을 개선한 것입니다. 전체 컨트랙트를
 
 Diamond Standard 의 중요한 부분은 Storage 동작입니다. Openzeppelin 이 사용하는 비정형화된 Storage 패턴과는 달리, Diamond Standard 의 Storage 는 특정 Storage Slot 에 하나의 `구조체`를 저장합니다. 
 
+
+> 앞으로 나오는 코드들은 최신 버전이 아니며 다수의 버그를 포함하고 있다. 따라서, 본문 내 코드는 작성일을 기준으로 설명하기 위한 간략한 버전으로 참고하고 실습은 github 에서 가져온 최신 버전으로 진행한다. 
+{: .prompt-warn}
+
+
 EIP 페이지 내 코드는 다음과 같습니다. 
 ```
 // A contract that implements diamond storage.
@@ -51,49 +56,6 @@ contract FaucetA {
   }
 }
 ```
-
-````
-위의 원본 코드를 그대로 Remix IDE 에 붙여넣기 할 경우 오류가 발생한다. 오류를 해결한 다음 코드를 사용한다. 
-
-```
-// SPDX-License-Identifier: GPL-3.0
-
-pragma solidity >=0.8.2 <0.9.0;
-
-// A contract that implements diamond storage.
-library LibA {
-
-  // This struct contains state variables we care about.
-  struct DiamondStorage {
-    address owner;
-    bytes32 dataA;
-  }
-
-  // Returns the struct from a specified position in contract storage
-  // ds is short for DiamondStorage
-  function diamondStorage() internal pure returns(DiamondStorage storage ds) {
-    // Specifies a random position from a hash of a string
-    bytes32 storagePosition = keccak256("diamond.storage.LibA");
-    // Set the position of our struct in contract storage
-    assembly {ds.slot := storagePosition}
-  }
-}
-
-// Our facet uses the diamond storage defined above.
-contract FacetA {
-
-  function setDataA(bytes32 _dataA) external {
-    LibA.DiamondStorage storage ds = LibA.diamondStorage();
-    require(ds.owner == msg.sender, "Must be owner.");
-    ds.dataA = _dataA;
-  }
-
-  function getDataA() external view returns (bytes32) {
-    return LibA.diamondStorage().dataA;
-  }
-}
-```
-````
 
 이렇게 하면, 전체 `구조`때문에, 분리된 Storage Slot 에 있는 LibXYZ, FacetXYZ 를 원하는 만큼 가질 수 있습니다. 즉, Facet 컨트랙트가 아닌 delegatecall 을 호출하는 Proxy 컨트랙트에 저장됩니다. 
 
@@ -268,9 +230,6 @@ contract('FacetA Test', async (accounts) => {
 
 ![truffle_facetA_test_1](/assets/images/7_5_truffle_facetA_test_1.png)
 _truffle unittest 실행 후 truffle 화면_
-
-![truffle_facetA_test_2](/assets/images/7_5_truffle_facetA_test_2.png)
-_truffle unittest 실행 후 ganache-cli 화면_
 
 
 ### 장단점
