@@ -1,5 +1,5 @@
 ---
-title: SSI 개발 환경 구성하기 - Step1 Init (VSCode + TruffleSuite)
+title: SSI 개발 환경 구성하기 - Step1 Init (VSCode + TruffleSuite + Ganache-cli)
 date: 2023-09-18 05:30 +09:00
 published: true
 categories: [SSI]
@@ -46,7 +46,7 @@ VSCode와 같이 붉은 색 박스로 표시해 둔 윈도우용 NodeJS 를 클�
 설치가 완료되면 버전 정보 출력을 통해 정상 실행여부를 확인합니다. 터미널을 실행한 후 다음의 명령어를 실행합니다. 
 명령어를 실행하는 위치는 어디든 상관없습니다. 
 
-```node --version```
+- 명령어 : ```node --version```
 
 ![NodeJS 버전](/assets/images/NodeJS_Version.png){: .shadow }
 _NodeJS 버전 확인_
@@ -56,7 +56,7 @@ _NodeJS 버전 확인_
 
 이전에도 언급했듯 TruffleSuite 설치는 `npm`명령어를 사용합니다. 터미널에서 다음의 명령어를 실행합니다. 
 
-```npm install -g truffle```
+- 명령어 : ```npm install -g truffle```
 
 ![Truffle 설치](/assets/images/truffle_install.png){: .shadow }
 _터미널 환경에서 TruffleSuite 설치_
@@ -66,7 +66,7 @@ _터미널 환경에서 TruffleSuite 설치_
 
 설치가 정상적으로 완료되었다면, 버전 정보 출력을 통해 정상 실행여부를 확인합니다. 
 
-```truffle version```
+- 명령어 : ```truffle version```
 
 ![Truffle 버전](/assets/images/truffle_version.png){: .shadow }
 _TruffleSuite 버전 확인_
@@ -80,14 +80,14 @@ Ganache 는 쉽게 Ethereum 환경을 만들 수 있도록 TruffleSuite 측에�
 GUI 버전과 CLI 버전을 모두 지원하고 있으며 개발환경에서는 GUI 보단 CLI 가 편리하다고 판단되어 CLI 버전을 기준으로 설명합니다. 
 Ganache-CLI 를 설치하는 방식은 TruffleSuite 와 같이 터미널에서 npm 명령어를 사용하면 됩니다.
 
-```npm install -g ganache```
+- 명령어 : ```npm install -g ganache```
 
 ![Ganache-Cli 설치](/assets/images/ganache_cli_install.png){: .shadow }
 _Ganache-Cli 설치_
 
 설치가 정상적으로 완료되었다면, 실행합니다. 다음과 같은 화면이 나온다면, 정상 설치가 완료되었습니다. 
 
-```ganache-cli```
+- 명령어 : ```ganache-cli```
 
 ![Ganache-Cli 실행](/assets/images/ganache_cli.png){: .shadow }
 _Ganache-Cli 실행_
