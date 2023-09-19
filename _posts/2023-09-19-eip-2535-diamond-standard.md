@@ -18,7 +18,7 @@ Diamond Standard 의 중요한 부분은 Storage 동작입니다. Openzeppelin �
 
 
 > 앞으로 나오는 코드들은 최신 버전이 아니며 다수의 버그를 포함하고 있다. 따라서, 본문 내 코드는 작성일을 기준으로 설명하기 위한 간략한 버전으로 참고하고 실습은 github 에서 가져온 최신 버전으로 진행한다. 
-{: .prompt-warn}
+{: .prompt-warning}
 
 
 EIP 페이지 내 코드는 다음과 같습니다. 
@@ -56,6 +56,7 @@ contract FaucetA {
   }
 }
 ```
+{: .nolineno }
 
 이렇게 하면, 전체 `구조`때문에, 분리된 Storage Slot 에 있는 LibXYZ, FacetXYZ 를 원하는 만큼 가질 수 있습니다. 즉, Facet 컨트랙트가 아닌 delegatecall 을 호출하는 Proxy 컨트랙트에 저장됩니다. 
 
@@ -150,6 +151,7 @@ library LibA {
     }
 }
 ```
+{: .nolineno }
 
 마이그레이션 파일을 추가합니다. 
 
@@ -162,6 +164,7 @@ module.exports = function (deployer, network, accounts) {
     deployer.deploy(FacetA)
 }
 ```
+{: .nolineno }
 
 keccak256("diamond.storage.LibA") 는 누구든지 검색해 Storage Slot 을 덮어쓸 수 있기 때문에 안전하지 않다는 것을 알 수 있습니다. 
 
@@ -225,6 +228,7 @@ contract('FacetA Test', async (accounts) => {
 
 })
 ```
+{: .nolineno }
 
 `truffle test test/facetA.test.js` 를 실행하면, FacetA.sol 에서 Diamond로 함수가 추가됐음을 알 수 있습니다. 다음 테스트 케이스에서, 저장되고, 다시 반환합니다. 
 
