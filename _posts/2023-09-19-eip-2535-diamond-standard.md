@@ -1,6 +1,6 @@
 ---
 title: 업그레이드 가능한 스마트 컨트랙트 (8) - EIP-2535 Diamond Standard
-date: 2023-09-10 00:30 +09:00
+date: 2023-09-19 05:30 +09:00
 published: true
 categories: [BlockChain]
 tags: [BlockChain, Dev, Smart Contract, Proxy, Upgradeable Smart Contract, Solidity, 번역]
@@ -107,7 +107,7 @@ Facet과 함수를 추가하는 기능을 "diamondCut"라고 합니다. 그리�
 
 먼저, migration 파일에서 스마트 컨트랙트가 어떻게 배포되었는지 확인합니다. 이를 통해 Diamond 컨트랙트를 배포할 때, DiamondCutFacet 과 DiamondLoupeFacet 의 주소와 함수 셀렉터가 제공된다는 것을 알 수 있습니다. 기본적으로 Diamond Proxy 의 일부가 됩니다. 
 
-테스트 파일을 확인해보면, 첫 번째 테스트 케이스는 주소와 시그니처 매핑을 가져오고, Diamond Proxy 로 설정되었는지 확인합니다. 121줄은 Test1Facet 과 Test2Facet 함수가 추가되었습니다. 
+테스트 파일을 확인해보면, 첫 번째 테스트 케이스는 주소와 함수명 매핑을 가져오고, Diamond Proxy 로 설정되었는지 확인합니다. 121줄은 Test1Facet 과 Test2Facet 함수가 추가되었습니다. 
 
 > 최신버전의 Nick Repository를 살펴보면 번역에서 언급한 내용과 다름을 알 수 있습니다. 그 동안 스마트 컨트랙트 기술이 발전했고, 관련내용을 적용해 Diamond-1, Diamond-2, Diamond-3 으로 구분해 개별 Repository로 작성해 두었습니다. 원본 문서는 Diamond-1 을 기준으로 했으나 그 또한 원본 글이 작성된 시기와 다른 코드이므로 이 점을 감안하기 바란다. 
 {: .prompt-info}
@@ -116,7 +116,7 @@ Facet과 함수를 추가하는 기능을 "diamondCut"라고 합니다. 그리�
 ### 사용해 보기
 먼저, 다음 Repository 를 가져옵니다. 
 
-> git clone https://github.com/mudgen/diamond-1.git
+- 명령어 : ```git clone https://github.com/mudgen/diamond-1.git```
 
 ![git_clone](/assets/images/7_1_clone_diamond.png)
 _git clone 실행화면_
@@ -127,7 +127,7 @@ _git clone 실행화면_
 {: .prompt-info}
 
 
-> ganache-cli
+- 명령어 : ```ganache-cli```
 
 ![start_ganachi_cli](/assets/images/7_3_start_ganache_cli.png)
 _ganache-cli 실행화면_
@@ -137,7 +137,7 @@ _ganache-cli 실행화면_
 > truffle test 는 Repository 에서 가져온 소스코드가 있는 위치로 이동해서 실행한다. 본 Post의 경우 `~/Desktop/Dev/edu/diamond-1` 에 위치한다. 
 {: .prompt-info}
 
-> truffle test
+- 명령어 : ```truffle test```
 
 ![truffle_test_1](/assets/images/7_4_truffle_test_1.png)
 _truffle 테스트 실행 후 truffle 화면_
@@ -275,12 +275,28 @@ _truffle unittest 실행 후 ganache-cli 화면_
 
 ### 장단점
 
+장점은 매우 큰 스마트 컨트랙트의 한계점을 우회하고 점진적으로 컨트랙트를 업데이트할 수 있다는 점입니다. 아직 초기 단계이므로 더 많은 연구가 필요합니다. 
+스마트 컨트랙트를 작은 단위로 나누고 개별적으로 배포하고 업데이트할 수 있는 프레임워크가 되었으면 좋겠습니다. 어떻게든 할 수 있겠지만, 여전히 Facet은 모든 내부 함수와 함수명이 필요하기 때문에 완전하진 않습니다. 
+
+전반적으로, Nick은 더 나은 방향으로 나아가고 있다고 생각합니다. 하지만, 몇가지 주요 단점이 있어 아직 사용할 수는 없는 상태입니다. 
+
+- Proxy 는 스마트 컨트랙트 생태계로 진입하기 위한 시작점이 될 수 있습니다. 대규모 시스템의 경우, 상속을 사용하므로 Diamond Proxy 에 함수를 추가할 때, 주의해야 합니다. 또한 같은 이름을 가진 시스템의 서로 다른 두 부분에 함수명이 쉽게 충돌할 수 있습니다. 
+
+- 만약 비정형 Storage를 사용하는 단일 Facet을 사용하지 않는다면, 시스템상의 모든 스마트 컨트랙트는 Diamond Storage를 사용해야 합니다. 단순히, OpenZeppelin ERC20 이나 ERC777 토큰을 사용하는 것은 Diamond Storage Slot 0 에 쓰기 때문에 권장하지 않습니다. 
+
+- Facet 간 Storage 를 공유하는 것은 위험합니다. 관리자에게 많은 책임을 지우게 됩니다. 
+
+- diamondCut 으로 Diamond 에 함수를 추가하는 것은 매우 번거롭습니다. 또한 이 [블로그][Blog] 내용처럼, Facet 설정을 가져오는 다른 기법도 있습니다. 
+
+- diamondCut 으로 Diamond 에 함수를 추가하는 것은 상당히 많은 Gas 를 소모합니다. FacetA 컨트랙트 두 함수를 추가하는데 109316 Gas 가 듭니다. 20달러 이상입니다. 
 
 
 
 ---
 ### 정리
-* 
+
+- Diamond Standard 는 특정 Storage Slot 에 구조체를 저장하고 등록 후 사용하는 방식이다. 
+- 꾸준히 발전 중인 방식이며 비용, 충돌 가능성등의 문제로 사용성은 떨어진다. 
 
 
 ---
@@ -303,3 +319,4 @@ _truffle unittest 실행 후 ganache-cli 화면_
 
 
 [Nick_Repository]: https://github.com/mudgen/Diamond
+[Blog]: https://hiddentao.com/archives/2020/05/28/upgradeable-smart-contracts-using-diamond-standard
