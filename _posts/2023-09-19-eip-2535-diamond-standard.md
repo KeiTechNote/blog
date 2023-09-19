@@ -18,7 +18,7 @@ Diamond Standard 의 중요한 부분은 Storage 동작입니다. Openzeppelin �
 
 
 > 앞으로 나오는 코드들은 최신 버전이 아니며 다수의 버그를 포함하고 있다. 따라서, 본문 내 코드는 작성일을 기준으로 설명하기 위한 간략한 버전으로 참고하고 실습은 github 에서 가져온 최신 버전으로 진행한다. 
-{: .prompt-warn}
+{: .prompt-warning}
 
 
 EIP 페이지 내 코드는 다음과 같습니다. 
@@ -56,6 +56,7 @@ contract FaucetA {
   }
 }
 ```
+{: .nolineno }
 
 이렇게 하면, 전체 `구조`때문에, 분리된 Storage Slot 에 있는 LibXYZ, FacetXYZ 를 원하는 만큼 가질 수 있습니다. 즉, Facet 컨트랙트가 아닌 delegatecall 을 호출하는 Proxy 컨트랙트에 저장됩니다. 
 
@@ -80,7 +81,7 @@ Facet과 함수를 추가하는 기능을 "diamondCut"라고 합니다. 그리�
 
 - 명령어 : ```git clone https://github.com/mudgen/diamond-1.git```
 
-![git_clone](/assets/images/7_1_clone_diamond.png)
+![git_clone](/assets/images/7_1_clone_diamond.png){: .shadow }
 _git clone 실행화면_
 
 그리고 나서, ganache-cli 을 터미널로 실행합니다.
@@ -91,7 +92,7 @@ _git clone 실행화면_
 
 - 명령어 : ```ganache-cli```
 
-![start_ganachi_cli](/assets/images/7_3_start_ganache_cli.png)
+![start_ganachi_cli](/assets/images/7_3_start_ganache_cli.png){: .shadow }
 _ganache-cli 실행화면_
 
 테스트를 실행해 다음과 같이 출력되는지 확인합니다. 
@@ -101,10 +102,10 @@ _ganache-cli 실행화면_
 
 - 명령어 : ```truffle test```
 
-![truffle_test_1](/assets/images/7_4_truffle_test_1.png)
+![truffle_test_1](/assets/images/7_4_truffle_test_1.png){: .shadow }
 _truffle 테스트 실행 후 truffle 화면_
 
-![truffle_test_2](/assets/images/7_4_truffle_test_2.png)
+![truffle_test_2](/assets/images/7_4_truffle_test_2.png){: .shadow }
 _truffle 테스트 실행 후 ganache-cli 화면_
 
 diamondCut 인터페이스는 라이브러리를 통해서만 이용할 수 있고, 생성자의 Diamond 컨트랙트에서 호출됩니다. 만약, 업데이트 기능을 제거하려면, diamondCut 함수를 제거하면 됩니다. 
@@ -150,6 +151,7 @@ library LibA {
     }
 }
 ```
+{: .nolineno }
 
 마이그레이션 파일을 추가합니다. 
 
@@ -162,6 +164,7 @@ module.exports = function (deployer, network, accounts) {
     deployer.deploy(FacetA)
 }
 ```
+{: .nolineno }
 
 keccak256("diamond.storage.LibA") 는 누구든지 검색해 Storage Slot 을 덮어쓸 수 있기 때문에 안전하지 않다는 것을 알 수 있습니다. 
 
@@ -225,10 +228,11 @@ contract('FacetA Test', async (accounts) => {
 
 })
 ```
+{: .nolineno }
 
 `truffle test test/facetA.test.js` 를 실행하면, FacetA.sol 에서 Diamond로 함수가 추가됐음을 알 수 있습니다. 다음 테스트 케이스에서, 저장되고, 다시 반환합니다. 
 
-![truffle_facetA_test_1](/assets/images/7_5_truffle_facetA_test_1.png)
+![truffle_facetA_test_1](/assets/images/7_5_truffle_facetA_test_1.png){: .shadow }
 _truffle unittest 실행 후 truffle 화면_
 
 
