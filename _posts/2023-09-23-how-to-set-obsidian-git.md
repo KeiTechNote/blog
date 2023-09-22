@@ -16,21 +16,21 @@ Obsidian 을 2년정도 사용해 오면서 가장 큰 불편사항이었던 동
 
 - Obsidian [다운로드](https://obsidian.md/download)
 
-![Download Obsidian](/dkei.github.io/assets/images/Obsidian_download.png)
+![Download Obsidian](/assets/images/Obsidian_download.png)
 
 설치 후 실행하면 다음과 같은 시작 화면을 볼 수 있습니다. 
 
-![Start Obsidian](/dkei.github.io/assets/images/Obsidian_start.png)
+![Start Obsidian](/assets/images/Obsidian_start.png)
 
 Obsidian에서 작성할 md 파일을 저장할 공간인 `Vault` 를 생성합니다. 
 
 - 순서 : `Create New Vault > Vault Name 기입 > Browser 로 저장할 폴더 설정 > Create`
 
-![Init Obsidian](/dkei.github.io/assets/images/Obsidian_init.png)
+![Init Obsidian](/assets/images/Obsidian_init.png)
 
 본 Post 에서는 Vault Name 은 `Vault`, 저장할 폴더는 `바탕화면\Note` 폴더로 지정했습니다. `Create` 하면 해당 폴더 아래에 `Vault` 이름의 폴더가 생성됩니다. 
 
-![Empty Obsidian](/dkei.github.io/assets/images/Obsidian_Empty.png)
+![Empty Obsidian](/assets/images/Obsidian_Empty.png)
 
 ### Plug-In Obsidian Git
 
@@ -47,18 +47,18 @@ Obsidian Git 은 Community Plugin 에서 찾아볼 수 있다.
 
 - 경로 : `Settings > Community plugins > (Turn on Community plugins)`
 
-![Community Plugin](/dkei.github.io/assets/images/Obsidian_Communityplugin.png)
+![Community Plugin](/assets/images/Obsidian_Communityplugin.png)
 
 > 처음 사용하면 Obsidian Community plugins 는 비활성화되어 있습니다. 따라서 `Turn On Community plugins` 로 사용할 수 있도록 활성화해야 합니다. 이후 바로 사용할 수 있습니다. 
 {: .prompt-info}
 
 - 경로 : `Browse > 'Obsidian Git' 검색 > 'Obsidian Git' 선택 > Install`
 
-![Install Obsidian Git](/dkei.github.io/assets/images/Obsidian_Install_Git.png)
+![Install Obsidian Git](/assets/images/Obsidian_Install_Git.png)
 
 설치가 완료되면 Community plugins 화면에서 `Installed Plugins` 항목 하위에 설치된 Obsidian Git 을 확인할 수 있습니다. 이제 사용할 수 있도록 활성화 후 Github 로 백업될 수 있도록 설정하면 됩니다. 
 
-![Enable Obsidian Git](/dkei.github.io/assets/images/Obsidian_Git_Enable.png)
+![Enable Obsidian Git](/assets/images/Obsidian_Git_Enable.png)
 
 > Obsidian Git을 활성화하면 `Can't find ~` 오류가 나옵니다. 이는 Obsidian Git 은 활성화됐지만 백업할 수 있는 Github 정보가 없기 때문에 발생한 오류이므로 지금은 무시해도 상관없습니다. 
 {: .prompt-info}
@@ -73,21 +73,21 @@ Obsidian Git 은 Community Plugin 에서 찾아볼 수 있다.
 
 - 경로 : `Github 로그인 >  'Repository' 탭 > 'New'`
 
-![New Repository](/dkei.github.io/assets/images/Github_Repository_New_1.png)
+![New Repository](/assets/images/Github_Repository_New_1.png)
 
 
 - 설정 정보
     - Repository Name
     - `Private` 
 
-![Setup New Repository](/dkei.github.io/assets/images/Github_Repository_New_2.png)
+![Setup New Repository](/assets/images/Github_Repository_New_2.png)
 
 신규 Repository 용도는 Obsidian 을 백업하기 위함입니다. Github 는 외부 공개(Public)가 기본 설정이므로 신경쓰인다면 외부 비공개 (Private) 을 설정하기 바랍니다. 
 
 Github Repository 를 생성했다면 다음과 같이 Repository 가 보입니다. 
 이제 Obsidian Git 설정에 필요한 Repository 주소를 복사해 둡니다. 
 
-![Github Repo URL](/dkei.github.io/assets/images/Github_Repo_URL.png)
+![Github Repo URL](/assets/images/Github_Repo_URL.png)
 
 #### Github Token 발행하기
 
@@ -98,13 +98,13 @@ Github Repository 를 생성했다면 다음과 같이 Repository 가 보입니�
 
 우측 상단의 가장 오른쪽의 계정 아이콘을 선택합니다. 
 
-![User Icon](/dkei.github.io/assets/images/Github_User_Icon.png)
+![User Icon](/assets/images/Github_User_Icon.png)
 
 다음의 순서대로 선택합니다. 
 
 - 경로 : `Settings > Developer Settings > Personal Access Tokens > Tokens (classic) > 'Generatre New token' 선택 > 'Generate New token (Classic) 선택`
 
-![Token (Classic)](/dkei.github.io/assets/images/Github_Token_1.png)
+![Token (Classic)](/assets/images/Github_Token_1.png)
 
 Token 을 생성하는 화면으로 이동했습니다. 
 이 부분에서 Token 생성에 필요한 최소한의 값을 기입하면 됩니다. 
@@ -112,7 +112,7 @@ Token 을 생성하는 화면으로 이동했습니다.
 - Expiration : Token 유효기간으로 자신의 취향에 맞춰 선택합니다.  
 - Select Scopes : Token 권한 으로 `repo` 권한을 부여합니다. 
 
-![New Token](/dkei.github.io/assets/images/Github_Token_2.png)
+![New Token](/assets/images/Github_Token_2.png)
 
 Token 권한을 제외하면 원하는 대로 지정하면 됩니다. 
 페이지 하단의 `Generate Token` 을 선택하면 Token 생성이 완료됩니다. 
@@ -130,7 +130,7 @@ Obsidian 으로 이동합니다. Command 입력창 (윈도우 `Ctrl + P`, 맥 `C
 
 - 순서 : `Command 입력창(Ctrl + P or Command + P) 실행 > 'Clone' 입력 > 'Obsidian Git : Clone an existing remote repo' 선택`
 
-![Obsidian_Command](/dkei.github.io/assets/images/Obsidian_Command.png)
+![Obsidian_Command](/assets/images/Obsidian_Command.png)
 
 URL 을 입력합니다. URL 은 Github URL 이며 다음의 형식으로 입력해야 합니다. 
 
@@ -152,7 +152,7 @@ Token 정보는 이전 Token 생성 과정에서 복사해 두었고 Github Repo
 다음 입력 부분은 무시하고 엔터로 넘어가면 Obsidian-Git 설정까지 모두 완료됩니다. 
 Obsidian 왼쪽부분에 지정한 폴더명이 보이고 만약 Github Repository 에 README.md 를 설정했다면 해당 파일이 함께 보입니다. 
 
-![Obsidian Git Done](/dkei.github.io/assets/images/Obsidian_Git_Done.png)
+![Obsidian Git Done](/assets/images/Obsidian_Git_Done.png)
 
 이제 Obsidian 을 종료 후 재시작합니다. 
 
@@ -161,16 +161,16 @@ Obsidian 왼쪽부분에 지정한 폴더명이 보이고 만약 Github Reposito
 생성한 폴더 하위에 Note 또는 폴더를 생성해 봅니다. 
 본 Post 에서는 생성한 폴더명은 'Github_Root_Backup' 이고 하위에 6개의 폴더를 생성했습니다. 
 
-![Obsidian Git Test1](/dkei.github.io/assets/images/Obsidian_Git_Test_1.png)
+![Obsidian Git Test1](/assets/images/Obsidian_Git_Test_1.png)
 
 Obsidian Command 창에서 backup 명령을 수행합니다. 
 
-![Obsidian Git Test2](/dkei.github.io/assets/images/Obsidian_Git_Test_2.png)
+![Obsidian Git Test2](/assets/images/Obsidian_Git_Test_2.png)
 
 본 Post 와 같이 폴더만을 생성해 `backup` 했다면 Github Repository에 아무런 변화가 없을 것입니다. Github 는 파일 단위로 동작합니다. 따라서, 저장할 파일(Obsidian 에서는 Note)
 가 없다면 기록만 될 뿐, Github Repository 에 저장하지 않습니다. 따라서, 폴더 하위에 Note 파일을 생성 후 backup 하면 정상 동작을 확인할 수 있습니다. 
 
-![Obsidian Git Test3](/dkei.github.io/assets/images/Obsidian_Git_Test_3.png)
+![Obsidian Git Test3](/assets/images/Obsidian_Git_Test_3.png)
 
 > `1. Project` 폴더만 생성되어 `Project Test Note.md` 만 저장됐을 뿐 다른 폴더는 보이지 않는 것을 알 수 있습니다. 
 {: .prompt-info}
