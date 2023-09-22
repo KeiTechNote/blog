@@ -1,10 +1,15 @@
 ---
-title: Obsidian 초기 설정하기 
-date: 2023-09-21 05:30 +09:00
+title: Obsidian 초기 설정하기 (1)
+date: 2023-09-23 05:30 +09:00
 published: true
 categories: [Vault]
 tags: [Vault, Memo, Obsidian, Obsidian-Git, Github, Backup]
 ---
+
+## Obsidian
+
+Obsidian 을 2년정도 사용해 오면서 가장 큰 불편사항이었던 동기화 부분을 해소해 주는 Obsidian Plugin 인 Obsidian-Git 을 소개합니다. 
+이름에 알 수 있듯 Obsidian 의 수익모델인 Sync 를 Github 로 대신하는 컨셉의 Plugin 이며 노트북 뿐만 아니라 모바일에서도 사용할 수 있어 효율적입니다. 
 
 
 ### 설치하기
