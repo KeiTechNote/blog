@@ -13,7 +13,7 @@ tags: [BlockChain, Dev, Smart Contract, Solidity, SSI, DID, Python]
 
 ### SSI 생태계
 ![SSI 생태계](/assets/images/roles_information_flow.png){: .shadow }
-_SSI 생태계 구성요소의 기본 역할과 정보 흐름도 (출처 : W3C)_
+_SSI 생태계 구성요소와 기본 역할 (출처 : W3C)_
 
 SSI 생태계는 4가지 기본 구성요소 ( `holder`, `issuer`, `verifier`, `verifiable data registry` ) 로 이루어져 있으며,
 W3C에서는 각각의 역할을 다음과 같이 정의하고 있습니다. 
