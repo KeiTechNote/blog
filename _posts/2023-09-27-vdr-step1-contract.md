@@ -75,7 +75,7 @@ W3C에서는 각각의 역할을 다음과 같이 정의하고 있습니다.
 ---
 ### 참고
 * [Step0 - Prolog](https://keitechnote.github.io/blog/posts/vdr-step0-prolog/)
-* [Step1 - Init](https://keitechnote.github.io/blog/posts/vdr-step1-init/)
+* [Step1 - Init (VSCode + TruffleSuite + Ganache-cli)](https://keitechnote.github.io/blog/posts/vdr-step1-init/)
 * [W3C VC-DATA-MODEL](https://www.w3.org/TR/vc-data-model-2.0/)
 
 
