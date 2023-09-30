@@ -3,7 +3,7 @@ title: 코딩교육을 위한 마이크로비트 (개정판)
 date: 2023-09-30 05:30 +09:00
 published: true
 categories: [Review]
-tags: [도서리뷰, Review, Self-development, 코딩교육]
+tags: [도서리뷰, Review, 코딩교육, 제이펍, Jpub]
 ---
 
 ***본 리뷰는 '제이펍' (출판사) 로 부터 책을 제공받아 작성했습니다.***
