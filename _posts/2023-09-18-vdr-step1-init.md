@@ -80,7 +80,7 @@ Ganache 는 쉽게 Ethereum 환경을 만들 수 있도록 TruffleSuite 측에�
 GUI 버전과 CLI 버전을 모두 지원하고 있으며 개발환경에서는 GUI 보단 CLI 가 편리하다고 판단되어 CLI 버전을 기준으로 설명합니다. 
 Ganache-CLI 를 설치하는 방식은 TruffleSuite 와 같이 터미널에서 npm 명령어를 사용하면 됩니다.
 
-- 명령어 : ```npm install -g ganache```
+- 명령어 : ```npm install -g ganache-cli```
 
 ![Ganache-Cli 설치](/assets/images/ganache_cli_install.png){: .shadow }
 _Ganache-Cli 설치_
