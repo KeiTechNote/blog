@@ -1,6 +1,6 @@
 ---
 title: 코딩교육을 위한 마이크로비트 (개정판)
-date: 2023-09-29 05:30 +09:00
+date: 2023-09-30 05:30 +09:00
 published: true
 categories: [Review]
 tags: [도서리뷰, Review, Self-development, 코딩교육]
@@ -16,5 +16,6 @@ tags: [도서리뷰, Review, Self-development, 코딩교육]
 - 페이지 : 198
 - 카테고리 : 코딩교육
 - 리딩 기간 : 2023-09-20 ~ 29
+
 
 
