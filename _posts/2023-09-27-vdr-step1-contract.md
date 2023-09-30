@@ -88,7 +88,8 @@ VDR 는 W3C 의 [DID-CORE][DID-CORE] 에서 다음과 같이 정의하고 있습
 Verifiable data registries
 
 In order to be resolvable to DID documents, DIDs are typically recorded on an underlying system or network of some kind. Regardless of the specific technology used, any such system that supports recording DIDs and returning data necessary to produce DID documents is called a verifiable data registry. Examples include distributed ledgers, decentralized file systems, databases of any kind, peer-to-peer networks, and other forms of trusted data storage.
-(번역 : DID document로 확인하기 위해선, DID는 어떤 종류의 시스템이나 네트워크에 저장되어야 합니다. 특정 기술에 관계없이, DID 를 저장하고 DID document를 생성하는데 필요한 데이터를 반환하는 시스템을 verifiable data registry라고 합니다. 예를 들어, 분산 원장, 분산 파일 시스템, 모든 종류의 데이터 베이스, P2P 네트워크, 신뢰할 수 있는 데이터 스토리지가 있습니다.)
+
+DID document로 확인하기 위해선, DID는 어떤 종류의 시스템이나 네트워크에 저장되어야 합니다. 특정 기술에 관계없이, DID 를 저장하고 DID document를 생성하는데 필요한 데이터를 반환하는 시스템을 verifiable data registry라고 합니다. 예를 들어, 분산 원장, 분산 파일 시스템, 모든 종류의 데이터 베이스, P2P 네트워크, 신뢰할 수 있는 데이터 스토리지가 있습니다.
 ```
 
 [DID Spec Registries][DID-SPEC-REGISTRIES] 에서는 다음과 같이 정의하고 있습니다. 
