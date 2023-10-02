@@ -12,7 +12,8 @@ tags: [BlockChain, Dev, Smart Contract, Solidity, SSI, DID, Python]
 이제 개발 순서를 정하고 개발을 진행하면 됩니다. 개발 순서를 정하기 위해선 개발해야 하는 대상이 무엇인지 정확히 인지해야 할 필요가 있습니다. 따라서, SSI가 어떻게 구성되어 있는지 살펴보겠습니다. 
 
 ### SSI 생태계
-![SSI 생태계](/assets/images/roles_information_flow.png){: width="700" height="400" }{: .shadow }
+
+![SSI 생태계](/assets/images/roles_information_flow.png)
 _SSI 생태계 구성요소와 기본 역할 (출처 : W3C)_
 
 SSI 생태계는 4가지 기본 구성요소 ( `holder`, `issuer`, `verifier`, `verifiable data registry` ) 로 이루어져 있으며,
@@ -32,7 +33,8 @@ W3C에서는 각각의 역할을 다음과 같이 정의하고 있습니다.
 예를 들어보겠습니다. 
 
 ```
-이름이 "디케이" 인 "나"가 있습니다. 나는 18살 생일이 지나 성인이 되었고, 주민센터에서 주민등록증을 발급받았습니다. 
+이름이 "디케이" 인 "나"가 있습니다. 나는 18살 생일이 지나 성인이 되었고, 
+주민센터에서 주민등록증을 발급받았습니다. 
 신기한 마음에 주민등록증을 써보고 싶어 가까운 편의점에서 맥주를 골랐습니다. 
 편의점 점원은 성인인지 확인하기 위해 주민등록증을 보여달라고 합니다. 
 지갑에 넣어두었던 주민등록증을 점원에게 보여주고 맥주를 계산하고 편의점을 나섰습니다. 
@@ -44,12 +46,13 @@ W3C에서는 각각의 역할을 다음과 같이 정의하고 있습니다.
 
 ```
 오늘 오전 09:00. ABC 병원에서 아내가 첫째 아이를 출산했습니다. 
-너무 기쁜 나머지 출산과 동시에 병원에서 출생증명서를 발급받고 전자가족관계등록 시스템을 통해 출생신고를 마쳤습니다. 
+너무 기쁜 나머지 출산과 동시에 병원에서 출생증명서를 발급받고 
+전자가족관계등록 시스템을 통해 출생신고를 마쳤습니다. 
 ```
 
 위 이야기에서는 holder 는 '아빠' 또는 '아이' 입니다. issuer 는 'ABC 병원', verifier 는 '전자가족관계등록시스템(정부)' 가 됩니다. 
 
-> 그림에는 표기되지 않았지만, `자격증명의 대상` 은 `subject` (주체) 로 사람, 동물, 사물 등 어떠한 대상이 될 수 있습니다. 보통 `subject` 와 `holder` 는 동일시되나 위의 이야기처럼 간록 "부모-자료", "소유주-애완동물"과 같이 서로 다른 경우도 있습니다. 
+> 그림에는 표기되지 않았지만, `자격증명의 대상` 은 `subject` (주체) 로 사람, 동물, 사물 등 어떠한 대상이 될 수 있습니다. 보통 `subject` 와 `holder` 는 동일시되나 위의 이야기처럼 간록 "부모-자식", "소유주-애완동물"과 같이 서로 다른 경우도 있습니다. 
 {: .prompt-warning}
 
 그림에서 볼 수 있듯 issuer, holder, verifier 는 DID를 발급하고, 보유하고, 전달하고, 검증하는 `역할`을 의미하며 시나리오에 따라 맡는 역할이 달라질 수 있습니다. 즉, issuer가 ABC 병원이지만, 때에 따라 주민센터(정부)나 사람이 될 수도 있습니다. 
@@ -87,9 +90,15 @@ VDR 는 W3C 의 [DID-CORE][DID-CORE] 에서 다음과 같이 정의하고 있습
 ```
 Verifiable data registries
 
-In order to be resolvable to DID documents, DIDs are typically recorded on an underlying system or network of some kind. Regardless of the specific technology used, any such system that supports recording DIDs and returning data necessary to produce DID documents is called a verifiable data registry. Examples include distributed ledgers, decentralized file systems, databases of any kind, peer-to-peer networks, and other forms of trusted data storage.
+In order to be resolvable to DID documents, DIDs are typically recorded on an underlying system or network 
+of some kind. Regardless of the specific technology used, any such system that supports recording DIDs and 
+returning data necessary to produce DID documents is called a verifiable data registry. Examples include 
+distributed ledgers, decentralized file systems, databases of any kind, peer-to-peer networks, and other 
+forms of trusted data storage.
 
-DID document로 확인하기 위해선, DID는 어떤 종류의 시스템이나 네트워크에 저장되어야 합니다. 특정 기술에 관계없이, DID 를 저장하고 DID document를 생성하는데 필요한 데이터를 반환하는 시스템을 verifiable data registry라고 합니다. 예를 들어, 분산 원장, 분산 파일 시스템, 모든 종류의 데이터 베이스, P2P 네트워크, 신뢰할 수 있는 데이터 스토리지가 있습니다.
+DID document로 확인하기 위해선, DID는 어떤 종류의 시스템이나 네트워크에 저장되어야 합니다. 특정 기술에 관계없이, 
+DID 를 저장하고 DID document를 생성하는데 필요한 데이터를 반환하는 시스템을 verifiable data registry라고 합니다. 
+예를 들어, 분산 원장, 분산 파일 시스템, 모든 종류의 데이터 베이스, P2P 네트워크, 신뢰할 수 있는 데이터 스토리지가 있습니다.
 ```
 
 즉, VDR 은 신뢰할 수 있어야하고 분산되어 있어야하며 탈중앙화를 만족해야 합니다. 이 조건을 만족할 수 있다면, 시스템이 어떤 종류이 건 문제되지 않습니다. 
@@ -111,7 +120,7 @@ DID document로 확인하기 위해선, DID는 어떤 종류의 시스템이나 
 스마트 컨트랙트 제작과 관련없는 부분은 지금은 고민의 대상이 아니기 때문에 우선 Remix IDE 를 통해 개발하고 테스트합니다. 
 [Remix IDE][Remix IDE] 에 접속해 아래의 코드를 붙여넣을 수 있는 솔리디티(확장자 .sol) 을 생성합니다. 
 
-![remix_ide_1](/assets/images/vdr_step1_remix_ide_1.png){: .shadow }
+![remix_ide_1](/assets/images/vdr_step1_remix_ide_1.png)
 _Remix IDE 에 솔디디티 파일 생성하기_
 
 생성된 simple_vdr.sol 파일에 아래의 코드를 붙여 넣습니다. 
@@ -132,7 +141,7 @@ contract simpleVDR {
     }
 }
 ```
-![remix_ide_2](/assets/images/vdr_step1_remix_ide_2.png){: .shadow}
+![remix_ide_2](/assets/images/vdr_step1_remix_ide_2.png)
 _simple_vdr.sol 파일에 코드 붙여넣기_
 
 코드를 붙여넣은 후 작성된 스마트 컨트랙트를 Remix IDE 에서 제공하는 가상의 이더리움 환경에 배포하기 위해선 `컴파일` 단계를 거쳐야 합니다. 컴파일은 솔리디티로 개발된 스마트 컨트랙트를 이더리움 환경에서 동작할 수 있도록 다른 언어로 변환하는 과정으로 `ABI` 와 `ByteCode` 이 생성됩니다. 
@@ -143,7 +152,7 @@ _simple_vdr.sol 파일에 코드 붙여넣기_
 
 컴파일합니다. 컴파일은 Remix IDE 의 왼쪽 아이콘 중 세 번째 위치하는 'Solidity Compiler' 에서 진행합니다.
 
-![remix_ide_3](/assets/images/vdr_step1_remix_ide_3.png){: .shadow}
+![remix_ide_3](/assets/images/vdr_step1_remix_ide_3.png)
 _컴파일하기_
 
 일반적으로 Remix IDE 는 컴파일을 자동으로 수행하기 때문에 'Solidity Compiler' 아이콘처럼 녹색 체크가 이미 표기됩니다.
@@ -151,24 +160,24 @@ _컴파일하기_
 
 앞서 컴파일은 솔리디티 코드를 ABI 와 ByteCode로 변환하는 과정이라고 설명했습니다. 따라서, 컴파일이 완료되면 다음과 같이 ABI 와 ByteCode를 살펴볼 수 있습니다. 
 
-![remix_ide_4](/assets/images/vdr_step1_remix_ide_4.png){: .shadow}
+![remix_ide_4](/assets/images/vdr_step1_remix_ide_4.png)
 _컴파일이 완료된 후 ABI 와 ByteCode 보기_
 
 배포 단계입니다. 배포는 Remix IDE 가 제공하는 가상 이더리움 환경을 대상으로 배포합니다. Remix IDE 를 살펴보면 배포할 수 있는 다양한 환경을 제공합니다. 그 중 'Remix VM' 으로 표기된 환경이 가상 이더리움 환경입니다. 
 
-![remix_ide_5](/assets/images/vdr_step1_remix_ide_5.png){: .shadow}
+![remix_ide_5](/assets/images/vdr_step1_remix_ide_5.png)
 _Remix IDE 에서 제공하는 가상 이더리움 환경_
 
 본 Post 는 그 중에서 상하이 환경 (Remix VM (Shanghai)) 을 사용합니다. 하지만, Remix VM 이라면 어떤 것을 사용해도 상관없습니다. 
 배포를 위해 `Deploy` 를 클릭 합니다. 배포하면 2가지 변화가 생깁니다. 
 '1. console 화면에서 트랜잭션이 처리되는 모습'을 볼 수 있고, 스마트 컨트랙트 배포 결과 '2. 배포된 컨트랙트를 확인'할 수 있습니다. 
 
-![remix_ide_6](/assets/images/vdr_step1_remix_ide_6.png){: .shadow}
+![remix_ide_6](/assets/images/vdr_step1_remix_ide_6.png)
 _Remix VM 에 스마트 컨트랙트 배포하기_
 
 배포가 완료된 스마트 컨트랙트를 사용해 보겠습니다. 이를 위해 배포된 스마트 컨트랙트 코드를 살펴보면,
 
-![remix_ide_7](/assets/images/vdr_step1_remix_ide_7.png){: .shadow}
+![remix_ide_7](/assets/images/vdr_step1_remix_ide_7.png)
 _배포된 솔리디티 코드 살펴보기_
 
 - Line 2 : 솔리디티 버전정보로 동작하는 상위버전 또는 하위버전을 지정할 수 있습니다. 솔리디티는 하위 호환성을 보장하는 개발 언어가 아니므로 동작할 수 있는 솔리디티 버전을 명시해야 합니다.  
@@ -179,7 +188,7 @@ _배포된 솔리디티 코드 살펴보기_
 > `mapping` 은 다른 언어에서 동일하게 매핑 또는 딕셔너리, Key-Value 방식으로 불리는 데이터를 저장하는 방식 중 하나입니다. 딕셔너리(사전) 는 단어를 찾으면 단어의 뜻을 알 수 있듯, Key 를 기준으로 Value 를 저장합니다. 위의 경우, register 함수에서는 _did 를 Key 로 _document를 저장하고, resolve 함수에서는 _did 를 Key 로 _document 를 찾아 반환합니다. 이렇게 저장하기 위해서 Line 5처럼 `mapping` 키워드로 정의한 후 Key 값의 자료형과 Value 값의 자료형을 지정하고, (_mapVDR 처럼) mapping 변수명을 지정하면 됩니다. 
 {: .prompt-info}
 
-![remix_ide_8](/assets/images/vdr_step1_remix_ide_8.png){: .shadow}
+![remix_ide_8](/assets/images/vdr_step1_remix_ide_8.png)
 _배포된 컨트랙트 함수 실행해 보기_
 
 개발이 완료되었다면 동작을 테스트합니다. resolve 함수는 _did 값에 맞춰 저장된 값을 불러오기 때문에 우선 저장이 선행되어야 합니다. 
