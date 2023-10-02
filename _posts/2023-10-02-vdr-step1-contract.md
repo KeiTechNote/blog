@@ -121,7 +121,8 @@ DID 를 저장하고 DID document를 생성하는데 필요한 데이터를 반�
 스마트 컨트랙트 제작과 관련없는 부분은 지금은 고민의 대상이 아니기 때문에 우선 Remix IDE 를 통해 개발하고 테스트합니다. 
 [Remix IDE][Remix IDE] 에 접속해 아래의 코드를 붙여넣을 수 있는 솔리디티(확장자 .sol) 을 생성합니다. 
 
-![remix_ide_1](/assets/images/vdr_step1_remix_ide_1.png){: width="700" height="400" }
+![remix_ide_1](/assets/images/vdr_step1_remix_ide_1.png)
+
 _Remix IDE 에 솔디디티 파일 생성하기_
 
 생성된 simple_vdr.sol 파일에 아래의 코드를 붙여 넣습니다. 
@@ -142,7 +143,8 @@ contract simpleVDR {
     }
 }
 ```
-![remix_ide_2](/assets/images/vdr_step1_remix_ide_2.png){: width="700" height="400" }
+![remix_ide_2](/assets/images/vdr_step1_remix_ide_2.png)
+
 _simple_vdr.sol 파일에 코드 붙여넣기_
 
 코드를 붙여넣은 후 작성된 스마트 컨트랙트를 Remix IDE 에서 제공하는 가상의 이더리움 환경에 배포하기 위해선 `컴파일` 단계를 거쳐야 합니다. 컴파일은 솔리디티로 개발된 스마트 컨트랙트를 이더리움 환경에서 동작할 수 있도록 다른 언어로 변환하는 과정으로 `ABI` 와 `ByteCode` 이 생성됩니다. 
@@ -154,7 +156,8 @@ _simple_vdr.sol 파일에 코드 붙여넣기_
 
 컴파일합니다. 컴파일은 Remix IDE 의 왼쪽 아이콘 중 세 번째 위치하는 'Solidity Compiler' 에서 진행합니다.
 
-![remix_ide_3](/assets/images/vdr_step1_remix_ide_3.png){: width="700" height="400" }
+![remix_ide_3](/assets/images/vdr_step1_remix_ide_3.png)
+
 _컴파일하기_
 
 일반적으로 Remix IDE 는 컴파일을 자동으로 수행하기 때문에 'Solidity Compiler' 아이콘처럼 녹색 체크가 이미 표기됩니다.
@@ -162,24 +165,28 @@ _컴파일하기_
 
 앞서 컴파일은 솔리디티 코드를 ABI 와 ByteCode로 변환하는 과정이라고 설명했습니다. 따라서, 컴파일이 완료되면 다음과 같이 ABI 와 ByteCode를 살펴볼 수 있습니다. 
 
-![remix_ide_4](/assets/images/vdr_step1_remix_ide_4.png){: width="700" height="400" }
+![remix_ide_4](/assets/images/vdr_step1_remix_ide_4.png)
+
 _컴파일이 완료된 후 ABI 와 ByteCode 보기_
 
 배포 단계입니다. 배포는 Remix IDE 가 제공하는 가상 이더리움 환경을 대상으로 배포합니다. Remix IDE 를 살펴보면 배포할 수 있는 다양한 환경을 제공합니다. 그 중 'Remix VM' 으로 표기된 환경이 가상 이더리움 환경입니다. 
 
-![remix_ide_5](/assets/images/vdr_step1_remix_ide_5.png){: width="700" height="400" }
+![remix_ide_5](/assets/images/vdr_step1_remix_ide_5.png)
+
 _Remix IDE 에서 제공하는 가상 이더리움 환경_
 
 본 Post 는 그 중에서 상하이 환경 (Remix VM (Shanghai)) 을 사용합니다. 하지만, Remix VM 이라면 어떤 것을 사용해도 상관없습니다. 
 배포를 위해 `Deploy` 를 클릭 합니다. 배포하면 2가지 변화가 생깁니다. 
 '1. console 화면에서 트랜잭션이 처리되는 모습'을 볼 수 있고, 스마트 컨트랙트 배포 결과 '2. 배포된 컨트랙트를 확인'할 수 있습니다. 
 
-![remix_ide_6](/assets/images/vdr_step1_remix_ide_6.png){: width="700" height="400" }
+![remix_ide_6](/assets/images/vdr_step1_remix_ide_6.png)
+
 _Remix VM 에 스마트 컨트랙트 배포하기_
 
 배포가 완료된 스마트 컨트랙트를 사용해 보겠습니다. 이를 위해 배포된 스마트 컨트랙트 코드를 살펴보면,
 
-![remix_ide_7](/assets/images/vdr_step1_remix_ide_7.png){: width="700" height="400" }
+![remix_ide_7](/assets/images/vdr_step1_remix_ide_7.png)
+
 _배포된 솔리디티 코드 살펴보기_
 
 - Line 2 : 솔리디티 버전정보로 동작하는 상위버전 또는 하위버전을 지정할 수 있습니다. 솔리디티는 하위 호환성을 보장하는 개발 언어가 아니므로 동작할 수 있는 솔리디티 버전을 명시해야 합니다.  
@@ -190,7 +197,8 @@ _배포된 솔리디티 코드 살펴보기_
 > `mapping` 은 다른 언어에서 매핑 또는 딕셔너리, Key-Value 방식으로 불리는 데이터 저장 중 하나입니다. 딕셔너리(사전) 라는 단어의 뜻을 알 수 있듯, Key 를 기준으로 Value 를 찾을 수 있도록 저장하는 형태를 의미합니다. 위의 경우, register 함수에서는 _did 를 Key 로 _document를 저장하고, resolve 함수에서는 _did 를 Key 로 _document 를 찾아 반환합니다. 이렇게 저장하기 위해서 Line 5처럼 `mapping` 키워드를 선언한 후 Key 값의 자료형과 Value 값의 자료형을 지정하고, (_mapVDR 처럼) mapping 변수명을 지정하면 됩니다. 
 {: .prompt-info}
 
-![remix_ide_8](/assets/images/vdr_step1_remix_ide_8.png){: width="700" height="400" }
+![remix_ide_8](/assets/images/vdr_step1_remix_ide_8.png)
+
 _배포된 컨트랙트 함수 실행해 보기_
 
 개발이 완료되었다면 동작을 테스트합니다. resolve 함수는 _did 값에 맞춰 저장된 값을 불러오기 때문에 우선 저장이 선행되어야 합니다. 
