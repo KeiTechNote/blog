@@ -12,7 +12,7 @@ tags: [BlockChain, Dev, Smart Contract, Solidity, SSI, DID, Python]
 이제 개발 순서를 정하고 개발을 진행하면 됩니다. 개발 순서를 정하기 위해선 개발해야 하는 대상이 무엇인지 정확히 인지해야 할 필요가 있습니다. 따라서, SSI가 어떻게 구성되어 있는지 살펴보겠습니다. 
 
 ### SSI 생태계
-![SSI 생태계](/assets/images/roles_information_flow.png){: .shadow }
+![SSI 생태계](/assets/images/roles_information_flow.png){: width="700" height="400" }{: .shadow }
 _SSI 생태계 구성요소와 기본 역할 (출처 : W3C)_
 
 SSI 생태계는 4가지 기본 구성요소 ( `holder`, `issuer`, `verifier`, `verifiable data registry` ) 로 이루어져 있으며,
