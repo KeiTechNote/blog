@@ -13,7 +13,8 @@ tags: [BlockChain, Dev, Smart Contract, Solidity, SSI, DID, Python]
 
 ### SSI 생태계
 
-![SSI 생태계](/assets/images/roles_information_flow.png)
+![SSI 생태계](/assets/images/roles_information_flow.png){: width="700" height="400" }
+
 _SSI 생태계 구성요소와 기본 역할 (출처 : W3C)_
 
 SSI 생태계는 4가지 기본 구성요소 ( `holder`, `issuer`, `verifier`, `verifiable data registry` ) 로 이루어져 있으며,
@@ -120,7 +121,7 @@ DID 를 저장하고 DID document를 생성하는데 필요한 데이터를 반�
 스마트 컨트랙트 제작과 관련없는 부분은 지금은 고민의 대상이 아니기 때문에 우선 Remix IDE 를 통해 개발하고 테스트합니다. 
 [Remix IDE][Remix IDE] 에 접속해 아래의 코드를 붙여넣을 수 있는 솔리디티(확장자 .sol) 을 생성합니다. 
 
-![remix_ide_1](/assets/images/vdr_step1_remix_ide_1.png)
+![remix_ide_1](/assets/images/vdr_step1_remix_ide_1.png){: width="700" height="400" }
 _Remix IDE 에 솔디디티 파일 생성하기_
 
 생성된 simple_vdr.sol 파일에 아래의 코드를 붙여 넣습니다. 
@@ -141,18 +142,19 @@ contract simpleVDR {
     }
 }
 ```
-![remix_ide_2](/assets/images/vdr_step1_remix_ide_2.png)
+![remix_ide_2](/assets/images/vdr_step1_remix_ide_2.png){: width="700" height="400" }
 _simple_vdr.sol 파일에 코드 붙여넣기_
 
 코드를 붙여넣은 후 작성된 스마트 컨트랙트를 Remix IDE 에서 제공하는 가상의 이더리움 환경에 배포하기 위해선 `컴파일` 단계를 거쳐야 합니다. 컴파일은 솔리디티로 개발된 스마트 컨트랙트를 이더리움 환경에서 동작할 수 있도록 다른 언어로 변환하는 과정으로 `ABI` 와 `ByteCode` 이 생성됩니다. 
 
-> `ABI` 는 Application Binary Interface 의 약자로 일반적으로 두개의 프로그램 사이에 위치하는 프로그램으로 함수, 매개변수 등의 정보를 정의한 파일이나 형식을 말합니다. 솔리디티에서는 스마트 컨트랙트로 개발된 함수를 JSON 형태로 표현하고 있어 이더리움에서 컨트랙트의 함수를 실행할 때 필요한 정보입니다. `ByteCode`는 솔리디티 코드를 이더리움에서 실행될 때, 이더리움이 이해할 수 있도록 변환한 것으로 Hex 형태로 되어 있으며 스마트 컨트랙트 배포시 블록체인에 저장되는 정보입니다. 
+> `ABI` 는 Application Binary Interface 의 약자로 일반적으로 두개의 프로그램 사이에 위치하는 프로그램으로 함수, 매개변수 등의 정보를 정의한 파일이나 형식을 말합니다. 솔리디티에서는 스마트 컨트랙트로 개발된 함수를 JSON 형태로 표현하고 있어 이더리움에서 컨트랙트의 함수를 실행할 때 필요한 정보입니다. 
+`ByteCode`는 솔리디티 코드를 이더리움에서 실행될 때, 이더리움이 이해할 수 있도록 변환한 것으로 Hex 형태로 되어 있으며 스마트 컨트랙트 배포시 블록체인에 저장되는 정보입니다. 
 {: .prompt-info}
 
 
 컴파일합니다. 컴파일은 Remix IDE 의 왼쪽 아이콘 중 세 번째 위치하는 'Solidity Compiler' 에서 진행합니다.
 
-![remix_ide_3](/assets/images/vdr_step1_remix_ide_3.png)
+![remix_ide_3](/assets/images/vdr_step1_remix_ide_3.png){: width="700" height="400" }
 _컴파일하기_
 
 일반적으로 Remix IDE 는 컴파일을 자동으로 수행하기 때문에 'Solidity Compiler' 아이콘처럼 녹색 체크가 이미 표기됩니다.
@@ -160,24 +162,24 @@ _컴파일하기_
 
 앞서 컴파일은 솔리디티 코드를 ABI 와 ByteCode로 변환하는 과정이라고 설명했습니다. 따라서, 컴파일이 완료되면 다음과 같이 ABI 와 ByteCode를 살펴볼 수 있습니다. 
 
-![remix_ide_4](/assets/images/vdr_step1_remix_ide_4.png)
+![remix_ide_4](/assets/images/vdr_step1_remix_ide_4.png){: width="700" height="400" }
 _컴파일이 완료된 후 ABI 와 ByteCode 보기_
 
 배포 단계입니다. 배포는 Remix IDE 가 제공하는 가상 이더리움 환경을 대상으로 배포합니다. Remix IDE 를 살펴보면 배포할 수 있는 다양한 환경을 제공합니다. 그 중 'Remix VM' 으로 표기된 환경이 가상 이더리움 환경입니다. 
 
-![remix_ide_5](/assets/images/vdr_step1_remix_ide_5.png)
+![remix_ide_5](/assets/images/vdr_step1_remix_ide_5.png){: width="700" height="400" }
 _Remix IDE 에서 제공하는 가상 이더리움 환경_
 
 본 Post 는 그 중에서 상하이 환경 (Remix VM (Shanghai)) 을 사용합니다. 하지만, Remix VM 이라면 어떤 것을 사용해도 상관없습니다. 
 배포를 위해 `Deploy` 를 클릭 합니다. 배포하면 2가지 변화가 생깁니다. 
 '1. console 화면에서 트랜잭션이 처리되는 모습'을 볼 수 있고, 스마트 컨트랙트 배포 결과 '2. 배포된 컨트랙트를 확인'할 수 있습니다. 
 
-![remix_ide_6](/assets/images/vdr_step1_remix_ide_6.png)
+![remix_ide_6](/assets/images/vdr_step1_remix_ide_6.png){: width="700" height="400" }
 _Remix VM 에 스마트 컨트랙트 배포하기_
 
 배포가 완료된 스마트 컨트랙트를 사용해 보겠습니다. 이를 위해 배포된 스마트 컨트랙트 코드를 살펴보면,
 
-![remix_ide_7](/assets/images/vdr_step1_remix_ide_7.png)
+![remix_ide_7](/assets/images/vdr_step1_remix_ide_7.png){: width="700" height="400" }
 _배포된 솔리디티 코드 살펴보기_
 
 - Line 2 : 솔리디티 버전정보로 동작하는 상위버전 또는 하위버전을 지정할 수 있습니다. 솔리디티는 하위 호환성을 보장하는 개발 언어가 아니므로 동작할 수 있는 솔리디티 버전을 명시해야 합니다.  
@@ -185,16 +187,16 @@ _배포된 솔리디티 코드 살펴보기_
 - Line 7 ~ 9 : 첫 번째 'register' 함수를 정의한 부분입니다. `_did` 와 `_document` 를 매개변수로 받도록 개발했습니다. 전달된 변수 중 _did 를 키값으로 _document 를 저장할 수 있도록 `mapping` (Line 5) 을 사용했습니다. 
 - Line 11 ~ 13 : 두 번째 'resolve' 함수를 정의한 부분입니다. register 함수에서 저장한 `_document` 를 `_did` 로 찾아서 반환합니다. 이를 위해 매개변수는 _did 를 받도록 개발되었습니다. 
 
-> `mapping` 은 다른 언어에서 동일하게 매핑 또는 딕셔너리, Key-Value 방식으로 불리는 데이터를 저장하는 방식 중 하나입니다. 딕셔너리(사전) 는 단어를 찾으면 단어의 뜻을 알 수 있듯, Key 를 기준으로 Value 를 저장합니다. 위의 경우, register 함수에서는 _did 를 Key 로 _document를 저장하고, resolve 함수에서는 _did 를 Key 로 _document 를 찾아 반환합니다. 이렇게 저장하기 위해서 Line 5처럼 `mapping` 키워드로 정의한 후 Key 값의 자료형과 Value 값의 자료형을 지정하고, (_mapVDR 처럼) mapping 변수명을 지정하면 됩니다. 
+> `mapping` 은 다른 언어에서 매핑 또는 딕셔너리, Key-Value 방식으로 불리는 데이터 저장 중 하나입니다. 딕셔너리(사전) 라는 단어의 뜻을 알 수 있듯, Key 를 기준으로 Value 를 찾을 수 있도록 저장하는 형태를 의미합니다. 위의 경우, register 함수에서는 _did 를 Key 로 _document를 저장하고, resolve 함수에서는 _did 를 Key 로 _document 를 찾아 반환합니다. 이렇게 저장하기 위해서 Line 5처럼 `mapping` 키워드를 선언한 후 Key 값의 자료형과 Value 값의 자료형을 지정하고, (_mapVDR 처럼) mapping 변수명을 지정하면 됩니다. 
 {: .prompt-info}
 
-![remix_ide_8](/assets/images/vdr_step1_remix_ide_8.png)
+![remix_ide_8](/assets/images/vdr_step1_remix_ide_8.png){: width="700" height="400" }
 _배포된 컨트랙트 함수 실행해 보기_
 
 개발이 완료되었다면 동작을 테스트합니다. resolve 함수는 _did 값에 맞춰 저장된 값을 불러오기 때문에 우선 저장이 선행되어야 합니다. 
 따라서, register 함수를 먼저 실행합니다. 
 
-(붉은색 박스처럼) register 함수는 _did, _document 매개변수를 전달받아야 하므로 원하는 값(자료형이 string 이므로 문자) 을 입력합니다. 본 Post 에서는 _did 로 'abc' 를, _document 로 'dkei.github.io/blog'를 입력했습니다. 'transact' 를 클릭하면 console 화면에 'register' 호출 트랜잭션이 처리되는 것을 확인할 수 있습니다. 
+(붉은색 박스처럼) register 함수는 _did, _document 매개변수를 전달받아야 하므로 원하는 값(자료형이 string 이므로 문자) 을 입력합니다. 본 Post 에서는 _did 로 'abc' 를, _document 로 'dkei.github.io/blog'를 입력했습니다. 'transact' 를 클릭하면 오른쪽 화면(console 화면)에 'register' 호출 트랜잭션이 처리되는 것을 확인할 수 있습니다. 
 
 (노란색 박스처럼) resolve 함수는 _did 매개변수를 전달받아야 하므로 원하는 값(자료형이 string 이므로 문자)을 입력합니다. 본 Post 에서는 _did 로 'abc'를 입력했습니다. 'resolve' 를 클릭하면 console 화면에 'resolve' Call 이 처리되고 그 결과가 resolve 함수 아래에 표기되는 것을 볼 수 있습니다. 
 
