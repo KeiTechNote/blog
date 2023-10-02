@@ -92,14 +92,14 @@ comments:
     issue_term:  # < url | pathname | title | ...>
   # Giscus options › https://giscus.app
   giscus:
-    repo: "KeiTechNote/blog" # <gh-username>/<repo>
-    repo_id: "R_kgDOKJZVHw"
-    category: "General"
-    category_id: "DIC_kwDOKJZVH84CZzhl"
-    mapping: "url" # optional, default to 'pathname'
-    input_position: "top" # optional, default to 'bottom'
-    lang: "ko" # optional, default to the value of `site.lang`
-    reactions_enabled: "1" # optional, default to the value of `1`
+    repo: KeiTechNote/blog # <gh-username>/<repo>
+    repo_id: 'R_kgDOKJZVHw'
+    category: 'General'
+    category_id: 'DIC_kwDOKJZVH84CZzhl'
+    mapping: 'url' # optional, default to 'pathname'
+    input_position: 'bottom' # optional, default to 'bottom'
+    lang: 'ko' # optional, default to the value of `site.lang`
+    reactions_enabled: '1' # optional, default to the value of `1`
 
 # Self-hosted static assets, optional › https://github.com/cotes2020/chirpy-static-assets
 assets:
