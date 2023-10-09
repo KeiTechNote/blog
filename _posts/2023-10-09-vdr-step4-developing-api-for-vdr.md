@@ -28,10 +28,15 @@ API 를 개발하는 방식은 다양합니다. 본 Post 는 [Prolog][step0-prol
 [FastAPI 홈페이지][fastapi_homepage] 를 보면 다양한 장점들을 설명하고 있지만 "빠름", "짧음", "견고함"과 같은 용어들은 다양한 형태로 API 를 작성해 보지 않은 사용자라면 와닿지 않습니다. 다만, 개인적으로 사용하기 쉽다라는 장점도 있지만, 가장 큰 장점이라면 "개발 문서를 기본 제공하는 것"입니다. 
 어떤 것이든 문서를 작성하고 그 문서를 다른 사람들과 함께 공유해 본 사람이라면, 가장 골치 아픈 부분이 항상 최신버전을 유지하는 부분일 것입니다. 앞으로 만들 API 는 다른 사용자가 스마트 컨트랙트의 기능을 사용할 수 있도록 기능을 제공하지만, 완성된 상태가 아닌, 꾸준히 수정, 개발되어야 하기 때문에 빈번히 변경이 발생합니다. 이 모든 것을 매번 문서로 작성하고 공유하는 것은 개발자에게 있어 매우 고된 작업입니다. 하지만, FastAPI 는 Swagger UI 나 ReDoc 두가지 형태로 문서를 자동 생성하므로 개발자는 개발에만 집중할 수 있습니다. 
 
+![swagger_ui_sample](/assets/images/swagger_ui_sample.png)
+
+_Swagger UI (출처 : FastAPI 홈페이지)_
+
 ### 파이썬 환경 변수 등록하기
 
-
-
+> 미리 파이썬 또는 파이썬 프레임워크를 설치한 경우, 다음과 같이 출력되는 경우 다음 섹션 'FastAPI 설치하기로 이동합니다.
+![register_env_4](/assets/images/register_env_4.png)
+{: .prompt-info}
 
 앞으로 파이썬으로 필요한 라이브러리 설치를 진행합니다. 다만, Prolog에서 소개한 대로 파이썬만을 설치하거나 Anaconda(파이썬 프레임워크) 을 그대로 설치하는 경우 종종 터미널에서 `python` 을 실행하면 설치된 파이썬이 실행되지 않고 (윈도우의 경우) Windows Store 가 실행되거나 (공통) `command not found` 오류가 나올 수 있습니다. 이러한 오류는 터미널에서 `python`이 어디에 설치되어 있는지 알 수 없어 발생합니다. 따라서, 원할하게 사용하기 위해선 `환경변수`에 등록해야 합니다. 
 
@@ -45,10 +50,10 @@ _제어판에서 시스템 검색_
 
 _시스템에서 환경변수로 이동_
 
-파이썬을 환경변수에 등록할 때, 두 곳을 등록해야 합니다. 한 곳은 `python.exe` 실행파일이 있는 디렉토리와 `pip.exe` (또는 `pip3.exe`) 가 있는 경로입니다. python.exe 가 있는 디렉토리 중 한곳에 pip.exe 가 있지만, 환경변수는 등록한 디렉토리만을 검색합니다. 따라서, 각각의 경로를 등록합니다. 
+파이썬을 환경변수에 등록할 때, 두 곳을 등록해야 합니다. 한 곳은 `python.exe` 실행파일이 있는 디렉토리와 `pip.exe` (또는 `pip3.exe`) 가 있는 경로입니다. python.exe 가 있는 디렉토리 하위 디렉토리에 pip.exe 가 있지만, 환경변수는 등록한 디렉토리만을 검색합니다. 따라서, 각각의 경로를 등록합니다. 
 
-- 변수 이름 : python
-- 변수 값 : C:\Users\amana\anaconda3;C:\Users\amana\anaconda3\Scripts
+- 변수 이름 : path
+- 변수 값 : C:\Users\amana\anaconda3, C:\Users\amana\anaconda3\Scripts
 
 파이썬이 설치된 경로는 사용자마다 다를 수 있으니 변수 값에 표기된 경로는 자신에게 맞는 경로를 넣어줍니다. 
 
@@ -56,32 +61,26 @@ _시스템에서 환경변수로 이동_
 
 _파이썬 등록_
 
-환경변수 등록이 완료되었다면 윈도우를 재부팅합니다.
+> 환경변수를 등록할 때, 'C:\Users\amana\anaconda3' 가 두번째 등록되어 있음을 알 수 있습니다. 이는 세번째 등록된 변수 값 때문입니다. 세번째 변수 값을 보면 `%USERPROFILE%\AppData\Local\Microsoft\WindowsApps` 입니다. 만약 이 변수값 이후에 'C:\Users\amana\anaconda3'를 등록하고 python.exe 를 실행하면 Windows Store 의 Python 프로그램 화면이 나타납니다. 즉, Windows 는 python.exe 를 환경변수에 등록된 변수 값을 순서대로 검색해 가장 먼저 발견되는 곳의 python.exe 를 실행하게 되는데, WindowsApps 에서 python.exe 가 발견되고 이는 Windows Store 에서 지원하는 프로그램이므로 Windows Store 가 열리는 것입니다. 따라서, 우리가 개별 설치한 python.exe가 실행되길 원한다면 `%USERPROFILE%\AppData\Local\Microsoft\WindowsApps` 변수 값 이전에 위치해야 합니다.
+{: .prompt-warning}
 
-> 타 OS 나 구버전 Windows 의 경우 환경변수를 수정/등록한 경우 터미널만 종료 후 재시작하면 터미널에서 환경변수를 반영해 주었습니다. 하지만 윈도우가 변경되면서 터미널 재시작만으로는 환경변수를 반영해 주지 않도록 수정되어 현재는 재부팅하거나 로그인 중인 윈도우 계정을 로그아웃 후 로그인하는 과정을 거치도록 변경되었습니다. 
-{: .prompt-info}
+환경변수 등록이 완료되었다면 사용중이던 터미널을 종료 후 재시작합니다. 'python.exe' 와 'pip.exe' 명령어가 정상실행되는지 확인합니다.
 
-
-
-
-
-
-
+![register_env_4](/assets/images/register_env_4.png)
 
 
 ### FastAPI 설치하기
 
-FastAPI 는 파이썬용 웹 프레임워크입니다. 앞서 설명한 Swagger UI 나 ReDoc 외에 다양한 기능을 활용하기 위해선 FastAPI 프레임워크를 설치해야 합니다. 
+FastAPI 는 파이썬용 웹 프레임워크입니다. 앞서 설명한 Swagger UI 나 ReDoc 외에 다양한 기능을 활용하기 위해 FastAPI 프레임워크를 설치합니다. 
 
 - 명령어 : `pip install fastapi`
 
-![install_fastapi]
+![install_fastapi](/assets/images/install_fastapi.png)
+
+FastAPI 프레임워크 설치가 완료됐으므로 이를 활용해 어떻게 API 를 만드는지 테스트 코드
 
 
-
-
-
-
+                                                                                                                                             
 
 
 
