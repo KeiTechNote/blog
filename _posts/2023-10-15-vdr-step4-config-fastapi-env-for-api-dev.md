@@ -156,12 +156,25 @@ hot reload 기능이 정상적으로 동작한다면, 코드 수정 및 저장 �
 
 _hot reload 동작 테스트_
 
+FastAPI 의 가장 큰 장점으로 꼽았던 Swagger UI 와 ReDoc 으로 예제 코드가 어떻게 출력되는지 확인해 보겠습니다.  
+
+- Swagger UI 접속 경로 : `http://127.0.0.1:8000/docs`
+- ReDoc 접속 경로 : `http://127.0.0.1:8000/redoc`
+
+![run_api_6](/assets/images/run_api_6.png)
+
+_Swagger UI 화면(왼쪽) 과 ReDoc 화면(오른쪽)_
+
+> Swagger UI 와 ReDoc 은 자동 문서화 이외에 추가적인 기능을 제공하고 있습니다. 앞으로 개발하면서 이 부분도 함께 다룰 예정입니다. 
+{: .prompt-info}
+
 지금까지 FastAPI 를 활용해 API 서버 개발을 위한 환경 구성을 완료했습니다. 다음 Post 에서는 배포된 스마트 컨트랙트와 통신하는 API 함수를 개발해 보겠습니다. 
 
 
 ---
 ### 정리
-* 
+* FastAPI 를 활용해 API 를 개발하는 경우, Swagger UI 나 ReDoc 기능을 활용할 수 있다. 
+* FastAPI 로 개발된 코드는 Uvicorn 으로 실행한 API 서버에서 실행되며 http://127.0.0.1:8000 으로 접속헤 볼 수 있다. 
 
 ---
 ### 참고
@@ -170,7 +183,6 @@ _hot reload 동작 테스트_
 * [Step2 - First Contract](https://keitechnote.github.io/blog/posts/vdr-step2-first-contract/)
 * [Step3 - Deploy Smart Contract on Ganache-Cli](https://keitechnote.github.io/blog/posts/vdr-step3-deploy-ganache/)
 
-[step0-prolog]: https://keitechnote.github.io/blog/posts/vdr-step0-prolog/
 [step2_first_contract]: https://keitechnote.github.io/blog/posts/vdr-step2-first-contract/
 [step3_Deploy_Contract]: https://keitechnote.github.io/blog/posts/vdr-step3-deploy-ganache/
 [BlockChain_Category]: https://keitechnote.github.io/blog/categories/blockchain/
