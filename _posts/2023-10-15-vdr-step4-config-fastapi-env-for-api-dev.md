@@ -152,7 +152,7 @@ def read_root():
 
 hot reload 기능이 정상적으로 동작한다면, 코드 수정 및 저장 후 웹 브라우저로 접속하면 변경된 코드가 반영되었음을 알 수 있습니다. 또한 이러한 변경여부는 터미널에서 로그로 확인할 수 있습니다. 
 
-![run_api_5](image-1.png)
+![run_api_5](/assets/images/run_api_5.png)
 
 _hot reload 동작 테스트_
 
