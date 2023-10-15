@@ -173,8 +173,10 @@ _Swagger UI 화면(왼쪽) 과 ReDoc 화면(오른쪽)_
 
 ---
 ### 정리
-* FastAPI 를 활용해 API 를 개발하는 경우, Swagger UI 나 ReDoc 기능을 활용할 수 있다. 
-* FastAPI 로 개발된 코드는 Uvicorn 으로 실행한 API 서버에서 실행되며 http://127.0.0.1:8000 으로 접속헤 볼 수 있다. 
+* FastAPI 를 활용해 API 를 개발하는 경우, Swagger UI 나 ReDoc 기능을 활용할 수 있습니다. 
+* FastAPI 로 개발된 코드는 Uvicorn 으로 실행한 API 서버에서 실행되며 http://127.0.0.1:8000 으로 접속헤 볼 수 있습니다. 
+* Swagger UI 는 http://127.0.0.1:8000/docs 로 접속해 볼 수 있습니다. 
+* ReDoc 은 http://127.0.0.1:8000/redoc 로 접속해 볼 수 있습니다. 
 
 ---
 ### 참고
