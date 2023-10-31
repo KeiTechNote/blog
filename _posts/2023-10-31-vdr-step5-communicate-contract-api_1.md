@@ -1,5 +1,5 @@
 ---
-title: SSI 개발 환경 구성하기 - Step5 Communicating between smart contracts and API
+title: SSI 개발 환경 구성하기 - Step5 Communicating between smart contracts and API (1)
 date: 2023-10-31 05:30 +09:00
 published: true
 categories: [SSI]
@@ -66,7 +66,6 @@ _truffle develop 명령어로 확인하는 Ganache 주소_
 _truffle-config.js 설정 파일로 확인하는 Ganache 주소_
 
 Truffle 환경의 Ganache 주소는 `http://127.0.0.1:9545` 임을 확인했습니다. Ganache 환경에 접속해 보겠습니다. 
-
 
 ```python
 from web3 import Web3, HTTPProvider
@@ -155,6 +154,9 @@ ganache_address = "http://127.0.0.1:9545
 web3 = Web3(HTTPProvider(ganache_address))
 print(f"[*] Connect Ganache : {web3.is_connected()}")
 
+# ==========================================
+# 공통코드
+# ==========================================
 # 배포된 스마트 컨트랙트 정보 수집 (abi, bytecode)
 compiled_sol = r"c:\Users\amana\OneDrive\바탕 화면\Dev\client\src\contracts\simpleVDR.json"
 with open(compiled_sol, "r", encoding="UTF-8") as file:
@@ -171,8 +173,13 @@ deployer_addr = "0xe974d84295a8fd6fbd2fc368329d6baebae9ad00"
 # deployer_addr = web3.eth.accounts[0]
 deployer_privatekey = "b7ce7e89e213c2f60acf743a8a02ece3220bb7dee784da12c6fee77e980ac28d"
 
-# register 트랜잭션 
+# 배포된 스마트 컨트랙트
 contract = web3.eth.contract(address=contract_addr, abi=abi)
+
+# ==========================================
+# register 고유코드
+# ==========================================
+# register 트랜잭션 
 tx = contract.functions.register("dkei2", "dkei_did_document").build_transaction({
     "from" : deployer_addr,
     'gas': 200000,
@@ -199,42 +206,74 @@ Truffle 환경의 Ganache 가 실행된 상태에서 파이썬 코드를 실행�
 
 _simpleVDR의 register 호출 결과_
 
-
-
-
-
-
-
-
-
-
-
-
-먼저 register 함수를 작성해 본 후 정상적으로 동작한다면, resolve 함수를 작성하겠습니다. 
+register 함수로 값을 등록했으니 resolve 함수로 등록한 값을 가져오겠습니다. resolve는 register에 비해 매우 단순합니다. resolve는 블록체인 네트워크에 기록된 정보를 읽어들이는 동작이기 때문에 서명이 필요하지도, 가스비를 제공할 필요도 없습니다. 코드로 확인하면 다음과 같습니다. 
 
 ```python
-...생략
+# -*- coding:utf-8 -*-
+from web3 import Web3, HTTPProvider
+import json
 
+# Ganache 연결
+ganache_address = "http://127.0.0.1:9545
+web3 = Web3(HTTPProvider(ganache_address))
+print(f"[*] Connect Ganache : {web3.is_connected()}")
 
+# ==========================================
+# 공통코드
+# ==========================================
+# 배포된 스마트 컨트랙트 정보 수집 (abi, bytecode)
+compiled_sol = r"c:\Users\amana\OneDrive\바탕 화면\Dev\client\src\contracts\simpleVDR.json"
+with open(compiled_sol, "r", encoding="UTF-8") as file:
+    compiled_data = json.load(file)
+    abi = compiled_data["abi"]
+    bytecode = compiled_data["bytecode"]
 
+# 받는 사람
+contract_addr = "0xAb3604c16ea9Bd01edcd44707930eDf756154B29"
+
+# 보내는 사람
+deployer_addr = "0xe974d84295a8fd6fbd2fc368329d6baebae9ad00"
+# or
+# deployer_addr = web3.eth.accounts[0]
+deployer_privatekey = "b7ce7e89e213c2f60acf743a8a02ece3220bb7dee784da12c6fee77e980ac28d"
+
+# 배포된 스마트 컨트랙트
+contract = web3.eth.contract(address=contract_addr, abi=abi)
+
+# 여기까지 코드는 위와 동일합니다. 
+
+# ==========================================
+# resolve
+# ==========================================
+result = contract.functions.resolve("dkei2").call()
+print(f"[*] Return : {result}")    
 ```
 
+resolve 함수 실행 결과는 다음과 같습니다. 
 
+![contract_resolve_run_result](/assets/images/contract_resolve_run_result.png)
 
+_simpleVDR의 resolve 호출 결과_
 
-
-
-
-
+지금까지 Truffle 환경의 Ganache 에 배포된 SimpleVDR 에 연결하고, register, resolve 함수를 호출하는 과정을 살펴봤습니다. 
+본 Post 가 길어진 관계로 Register, Resolve API를 만들고 적용하는 부분은 다음 Post에서 진행하겠습니다. 
 
 ---
 ### 정리
-* 
+* 블록체인 네트워크에 배포된 스마트 컨트랙트와 연결하기 위해선 Web3 파이썬 라이브러리를 사용합니다. 
+* 블록체인에 기록되는 트랜잭션을 만들 경우 개인키로 서명해야하며, 가스비를 소모합니다. 
+* 블록체인에 기록되지 않는 트랜잭션을 만들 경우 서명이 필요하지 않고, 가스비도 소모하지 않습니다. 
   
 ---
 ### 참고
+* [Step0 - Prolog](https://keitechnote.github.io/blog/posts/vdr-step0-prolog/)
+* [Step1 - Init (VSCode + TruffleSuite + Ganache-cli)](https://keitechnote.github.io/blog/posts/vdr-step1-init/)
+* [Step2 - First Contract](https://keitechnote.github.io/blog/posts/vdr-step2-first-contract/)
+* [Step3 - Deploy Smart Contract on Ganache-Cli](https://keitechnote.github.io/blog/posts/vdr-step3-deploy-ganache/)
+* [Step4 - Configuring the FastAPI environment for API development](https://keitechnote.github.io/blog/posts/vdr-step4-config-fastapi-env-for-api-dev/)
+
 * 샘플코드
     - [simple_vdr_register.py](https://github.com/KeiTechNote/blog/tree/main/codes/simple_vdr_register.py)
-
+    - [simple_vdr_resolve.py](https://github.com/KeiTechNote/blog/tree/main/codes/simple_vdr_resolve.py)
 
 [web3py_document]: https://web3py.readthedocs.io/en/stable/web3.main.html
