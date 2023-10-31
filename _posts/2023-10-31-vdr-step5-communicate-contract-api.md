@@ -1,6 +1,6 @@
 ---
 title: SSI 개발 환경 구성하기 - Step5 Communicating between smart contracts and API
-date: 2023-10-16 05:30 +09:00
+date: 2023-10-31 05:30 +09:00
 published: true
 categories: [SSI]
 tags: [BlockChain, Dev, Smart Contract, Solidity, SSI, DID, Python]
