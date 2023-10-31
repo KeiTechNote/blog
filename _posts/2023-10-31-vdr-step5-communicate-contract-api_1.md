@@ -150,7 +150,7 @@ from web3 import Web3, HTTPProvider
 import json
 
 # Ganache 연결
-ganache_address = "http://127.0.0.1:9545
+ganache_address = "http://127.0.0.1:9545"
 web3 = Web3(HTTPProvider(ganache_address))
 print(f"[*] Connect Ganache : {web3.is_connected()}")
 
@@ -214,7 +214,7 @@ from web3 import Web3, HTTPProvider
 import json
 
 # Ganache 연결
-ganache_address = "http://127.0.0.1:9545
+ganache_address = "http://127.0.0.1:9545"
 web3 = Web3(HTTPProvider(ganache_address))
 print(f"[*] Connect Ganache : {web3.is_connected()}")
 
