@@ -70,7 +70,7 @@ Truffle 환경의 Ganache 주소는 `http://127.0.0.1:9545` 임을 확인했습�
 ```python
 from web3 import Web3, HTTPProvider
 
-ganache_address = "http://127.0.0.1:9545
+ganache_address = "http://127.0.0.1:9545"
 web3 = Web3(HTTPProvider(ganache_address))
 print(web3.is_connected())
 ```
