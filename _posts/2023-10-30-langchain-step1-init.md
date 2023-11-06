@@ -51,11 +51,11 @@ _랭체인 제공 도구 (출처 : [LangChain 홈페이지][langchain_homepage])
 - 개발언어
     - 파이썬 3.10 이상([다운로드][Python 다운로드]) or 파이썬 플랫폼 Anaconda ([다운로드][Anaconda 다운로드])
 - 필수 프로그램
+    - LangChain
     - LLaMA2
 - 인프라
     - 화면(Front-End) : [Streamlit][Streamlit_site]
     - 저장소(DataBase) : [chroma][chroma_site]
-
 
 VSCode 와 파이썬 설치만 완료한 상태에서 진행되며 LLaMA2, Streamlit, chroma 등이 필요한 시점에 설치와 함께 활용해 보겠습니다. 
 
