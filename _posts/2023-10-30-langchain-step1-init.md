@@ -1,6 +1,6 @@
 ---
 title: LangChain 으로 AI 서비스 만들기 - Step1 Init
-date: 2023-10-30 05:30 +09:00
+date: 2023-11-06 05:30 +09:00
 published: true
 categories: [AI]
 tags: [AI, LangChain, Dev, Python, LLM, LLaMA2, chatPDF]
