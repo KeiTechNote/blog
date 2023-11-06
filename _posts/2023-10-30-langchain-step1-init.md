@@ -13,7 +13,7 @@ tags: [AI, LangChain, Dev, Python, LLM, LLaMA2, chatPDF]
 2022년 11월 chatGPT-3 (정확하게는 chatGPT-3.5) AI 챗봇이 공개되었고 이듬해인 2023년 3월 chatGPT-4가 공개되었습니다. 
 chatGPT-3 가 공개되었을 때, 추상적으로 느껴지던 AI 시대가 도래됐음을 피부로 느끼게 되었습니다. 이를 반영하듯 수많은 기업들이 chatGPT에서 사용하는 것과 유사한 (또는 더 뛰어나다고 말하는) 언어 모델을 적용해 AI 챗봇을 경쟁하듯 공개하기 시작했습니다.
 
-![llm_timeline](/assets/images/llm_timeline.jpg)
+![llm_timeline](/assets/images/llm_timeline.png)
 
 _언어모델 공개 타임라인 (출처 : [브런치 - 거대언어모델(LLM)의 현주소][brunch_brunchgpjz])
 
@@ -29,7 +29,7 @@ chatGPT-3가 1750억개, 구글이 공개한 PaLM은 5400억개, 메타가 공�
 
 다양한 활용은 다양한 기능을의 결합으로 해석될 수 있습니다. 랭체인(LangChain)은 다양한 기능을 제공하기 위해 필요한 도구들을 모아둔 프레임워크입니다. 
 
-![langchain_tools](/assets/images/langchain_tools.jpg)
+![langchain_tools](/assets/images/langchain_tools.png)
 
 _랭체인 제공 도구 (출처 : [LangChain 홈페이지][langchain_homepage])
 
