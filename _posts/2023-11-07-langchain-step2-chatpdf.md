@@ -1,12 +1,12 @@
 ---
 title: LangChain 으로 AI 서비스 만들기 - Step2 LLaMA2 + LangChain 경험하기
-date: 2023-11-07 05:30 +09:00
+date: 2023-11-17 05:30 +09:00
 published: true
 categories: [AI]
 tags: [AI, LangChain, Dev, Python, LLM, LLaMA2, chatPDF, cTransformers]
 ---
 
-***본 컨텐츠는 Udemy의 "랭체인으로 AI 웹서비스 만들기 with ChatGPT, LLaMA2" 내용 중 일부를 정리한 글입니다. 문제시 삭제될 수 있습니다.**
+** *본 컨텐츠는 Udemy의 "랭체인으로 AI 웹서비스 만들기 with ChatGPT, LLaMA2" 내용 중 일부를 정리한 글입니다. 문제시 삭제될 수 있습니다.**
 
 ## 개요
 
@@ -188,6 +188,7 @@ ChatPDF 를 만들기 위한 모든 준비가 끝났습니다. 이제 PDF 를 �
 ### 관련 Posts
 1. [LangChain 으로 AI 서비스 만들기 - Step 1. Init](https://keitechnote.github.io/blog/posts/langchain-step1-init/)
 
+[VSCode 다운로드]: https://code.visualstudio.com/download
 [llama2_homepage]: https://ai.meta.com/llama/
 [llama2_light_version]: https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML
 [llama2_light_version_provided_files]: https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML#provided-files
