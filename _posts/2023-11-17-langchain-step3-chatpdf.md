@@ -78,7 +78,6 @@ _pymupdf 라이브러리 설치_
 
 > 강의에서는 `PyPDF`를 사용했고 한글이 정상적으로 출력되는 것도 확인되었습니다. 하지만 제가 사용중인 노트북에서는 한글이 깨지는 현상이 발생해 `PyMuPDF` 를 사용합니다. 
 ![error_encoding_korean](/assets/images/error_encoding_korean.png)
-
 _한글 깨짐 화면_
 
 ```python
@@ -244,7 +243,7 @@ _질의에 대한 응답_
 
 ![korean_llm_awesome_list](/assets/images/korean_llm_awesome_list.png)
 
-_한국어 오픈소스 LLM Awesome List (출처 : [PyTouch 게시판 - 읽을거리 & 정보공유][korean_llm_awesome_list_pytouch])
+_한국어 오픈소스 LLM Awesome List (출처 : [PyTouch 게시판 - 읽을거리 & 정보공유][korean_llm_awesome_list_pytouch])_
 
 지금까지 chatPDF 의 핵심기능인 PDF 파일을 읽고, 분석하고 질의/응답하는 기능을 작성해 보았습니다. 
 다음 Post 에서 Streamlit 을 이용해 웹 서비스 형태로 작성해 보겠습니다. 

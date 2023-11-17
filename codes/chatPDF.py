@@ -58,35 +58,3 @@ from langchain.chains import RetrievalQA
 qa_chain = RetrievalQA.from_chain_type(llm, retriever=db.as_retriever())
 answer = qa_chain({"query": question})
 print(answer)
-
-
-
-
-
-
-
-
-
-
-# # # Step 1-3. create embedding function to vector
-# # from langchain.embeddings.sentence_transformer import SentenceTransformerEmbeddings
-
-# # embedding_model = SentenceTransformerEmbeddings(model_name="all-MiniLM-L12-v2")
-
-# # # Step 1-4. Load it into Chroma
-# # from langchain.vectorstores import Chroma
-
-# # def get_embeddings(texts):
-# #     embeddings = []
-# #     for text in texts:
-# #         embeddings.append(embedding_model.predict(text))
-# #     return embeddings
-
-# # db = Chroma.from_documents(texts,  get_embeddings)
-
-
-# # embedding_function
-# ['aembed_documents', 'aembed_query', 'cache_folder', 'client', 'construct', 'copy', 'dict', 'embed_documents', 'embed_query', 'encode_kwargs', 'from_orm', 'json', 'model_kwargs', 'model_name', 'multi_process', 'parse_file', 'parse_obj', 'parse_raw', 'schema', 'schema_json', 'update_forward_refs', 'validate']
-
-# # Chroma
-# ['aadd_documents', 'aadd_texts', 'add_documents', 'add_texts', 'adelete', 'afrom_documents', 'afrom_texts', 'amax_marginal_relevance_search', 'amax_marginal_relevance_search_by_vector', 'as_retriever', 'asearch', 'asimilarity_search', 'asimilarity_search_by_vector', 'asimilarity_search_with_relevance_scores', 'asimilarity_search_with_score', 'delete', 'delete_collection', 'embeddings', 'from_documents', 'from_texts', 'get', 'max_marginal_relevance_search', 'max_marginal_relevance_search_by_vector', 'persist', 'search', 'similarity_search', 'similarity_search_by_vector', 'similarity_search_by_vector_with_relevance_scores', 'similarity_search_with_relevance_scores', 'similarity_search_with_score', 'update_document', 'update_documents']
