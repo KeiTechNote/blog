@@ -1,5 +1,5 @@
 ---
-title: LangChain 으로 AI 서비스 만들기 - Step2 chatPDF
+title: LangChain 으로 AI 서비스 만들기 - Step2 LLaMA2 + LangChain 경험하기
 date: 2023-11-07 05:30 +09:00
 published: true
 categories: [AI]
@@ -23,6 +23,7 @@ VSCode 는 Microsoft에서 제공하는 개발 IDE 입니다. 무료로 공개�
 - VSCode [다운로드][VSCode_Download]
 
 ![VSCode 다운로드](/assets/images/VSCode_Download.png){: .shadow }
+
 _OS별 VSCode 다운로드 페이지_
 
 붉은 색 박스로 표시해 둔 윈도우용 VSCode 를 클릭하면 VSCode 설치파일이 다운로드됩니다. 다운로드가 완료되면 이를 실행하고 "다음" 버튼만 눌러서 설치하면 됩니다. 별도 선택할 부분은 없습니다. 
@@ -30,6 +31,8 @@ _OS별 VSCode 다운로드 페이지_
 설치가 완료되면 실행합니다. 다음과 같은 화면이 나온다면, 정상 설치가 완료되었습니다. 
 
 ![VSCode_실행](/assets/images/VSCode_Init.png){: .shadow }
+
+_VSCode 최초 실행 화면_
 
 
 ### LangChain 설치하기 
@@ -81,6 +84,8 @@ _cTransformers 설치_
 
 ### LLaMA2 + cTransformers 로 LLM 사용해 보기
 
+LLaMA2 에 cTransformers 를 직접 사용해 간단한 Chat 을 작성해 보겠습니다. 
+
 ```python
 # cTransformers 모듈 사용하기 위해 가져옵니다. 
 from ctransformers import AutoModelForCausalLM
@@ -100,19 +105,27 @@ print(llm("AI is going to"))
 _샘플코드를 작성해 질문 결과 (1)_
 
 
-샘플 코드를 실행했을 때, 어느정도 리소스를 사용하는지 간단하게 윈도우 작업관리자로 CPU, 메모리를 확인해 보았습니다. 
+참고로 샘플 코드를 실행했을 때, 어느정도 리소스를 사용하는지 간단하게 윈도우 작업관리자로 CPU, 메모리를 확인해 보았습니다. 
 
 다음은 LLaMA2 경량화 버전 중 가장 가벼운 버전인 `llama-2-7b-chat.ggmlv3.q2_K.bin` 을 사용했을 때 결과입니다. 
 
 ![task_manager_result_1](/assets/images/task_manager_result_1.png)
+
+_llama-2-7b-chat.ggmlv3.q2-K.bin 을 사용했을 때, 작업관리자 리소스 화면_
 
 
 다음은 LLaMA2 경량화 버전 중 가장 무거운 버전인 `llama-2-7b-chat.ggmlv3.q8_0.bin` 을 사용했을 때 결과입니다.
 
 ![task_manager_result_2](/assets/images/task_manager_result_2.png)
 
+_llama-2-7b-chat.ggmlv3.q8-0.bin 을 사용했을 때, 작업관리자 리소스 화면_
+
+리소스 사용량이 상대적으로 높긴 하지만 일반 CPU 에서 동작하기에 무리가 없는 수준입니다. 이는 학습을 "시켜" 모델을 "생성"하는 것이 아닌 생성된 모델을 "사용"만 하기 때문입니다. 따라서, 사용자 PC 의 리소스가 반드시 높아야 한다는 부담은 조금 내려놓아도 될 것 같습니다. 
+
 
 ### LLaMA2 + cTransformers + LangChain 으로 LLM 사용해 보기
+
+이제 LLaMA2 와 cTransformers 를 LangChain 을 활용해 실행하겠습니다. 
 
 ```python
 # LangChain 모듈에서 CTransformers 가져오기
@@ -132,26 +145,52 @@ print(llm("AI is going to"))
 
 _샘플코드를 작성해 질문 결과 (2)_
 
+첫번째 LLaMA2 + cTransformers 를 사용한 코드와 크게 다르지 않는다는 것을 알 수 있습니다. 
 
 ### Streamlit 설치하기
+
+지금까지 LLaMA2 를 사용해 보았습니다. 하지만 아직 Cli 화면에서 질문했을 때 답변을 받아보았을 뿐 화면에서 질문하고 답변을 받을 수 있도록 간단한 웹 서버와 화면이 필요합니다. 
+파이썬의 경우, 로컬 PC 에서 간단히 띄울 수 있는 웹서버들이 존재합니다. 주로 Flask, http.server, FastAPI 등이 있습니다. 
+하지만 본 Post 에서는 `Streamlit` 을 사용합니다. Streamlit 은 앞서 언급한 라이브러리들과 같은 웹 서버로 markdown 언어를 지원하고 있습니다. Streamlit 의 자세한 내용은 [홈페이지][streamlit_homepage] 또는 [공식문서][streamlit_docs] 를 참고하기 바랍니다.
 
 - 명령어 : `pip install streamlit`
 
 ![install_streamlit](/assets/images/install_streamlit.png)
 
+_streamlit 설치 화면_
+
+설치가 완료되었으면 공식문서의 설명처럼 정상적으로 설치가 되었는지 확인합니다. 
+
+- 명령어 : `streamlit hello`
+
+![check_streamlit_after_install](/assets/images/check_streamlit_after_install.png)
+
+_streamlit 설치 후 테스트_
+
+`hello` 명령을 넣으면 처음 설치한 사용자로 생각해 다양한 정보를 이메일로 받아볼 수 있도록 등록 화면이 나옵니다. 원하지 않는다면 엔터로 넘어가면 됩니다. 
+
+![streamlit_welcome_page](/assets/images/streamlit_welcome_page.png)
+
+_streamlit welcome 페이지_
+
+Streamlit 의 웰컴 페이지와 함께 약간의 샘플 데모를 볼 수 있습니다. 여기까지 잘 나왔다면, 정상적으로 설치가 완료되었습니다. 
+
+ChatPDF 를 만들기 위한 모든 준비가 끝났습니다. 이제 PDF 를 학습시키고, 질의 응답을 할 수 있는 웹 페이지를 작성해 보겠습니다. 
 
 
 
 
 ---
 ### 정리
-* 
+* LangChaing 은 다양한 언어 모델과 이를 활용할 수 있는 도구들을 연결해 주는 프레임워크입니다. 
 
 ---
-### 참고
-* 
+### 관련 Posts
+1. [LangChain 으로 AI 서비스 만들기 - Step 1. Init](https://keitechnote.github.io/blog/posts/langchain-step1-init/)
 
 [llama2_homepage]: https://ai.meta.com/llama/
 [llama2_light_version]: https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML
 [llama2_light_version_provided_files]: https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML#provided-files
 [ctransformer_github]: https://github.com/marella/ctransformers
+[streamlit_homepage]: https://streamlit.io/
+[streamlit_docs]: https://docs.streamlit.io/library/get-started
