@@ -15,6 +15,7 @@ tags: [AI, LangChain, Dev, Python, LLM, LLaMA2, chatPDF, cTransformers]
 ### Streamlit 으로 웹서비스 구성하기
 
 Streamlit 으로 웹 서비스를 구성할 때, 서비스에 접근해 첨부하는 파일에 따라 다른 학습이 가능하도록 파일 업로드 기능을 추가합니다. 
+또한 편의를 위해 질문 작성 후 "질문하기" 버튼 등 웹 서비스로써의 동작을 위한 코드를 일부 추가합니다. 
 (전체 코드는 함께 [첨부된 파이썬 파일][chatPDF_with_streamlit]을 참고하시기 바랍니다.)
 
 ```python
@@ -51,8 +52,24 @@ if st.button("질문하기"):
     st.write(answer)
 ```
 
-만약, 매번 파일을 업로드해 학습하지 않고 정해진 학습을 유지한 채 지속적으로 사용하고 싶다면, Chroma 의 옵션을 추가하면 됩니다. 
-해당 내용은 [이전 Post][step3_chatpdf_chroma_option] 에 포함되어 있으니 참고하기 바랍니다. 
+> 만약, 매번 파일을 업로드해 학습하지 않고 정해진 학습을 유지한 채 지속적으로 사용하고 싶다면, Chroma 의 옵션을 추가하면 됩니다. 해당 내용은 [이전 Post][step3_chatpdf_chroma_option] 에 포함되어 있으니 참고하기 바랍니다. 
+{: .prompt-info}
+
+Streamlit 로 웹 서비스를 실행합니다. 
+
+- 명령어 : `streamlit run chatPDF_with_streamlit.py`
+
+![streamlit_run_1](/assets/images/streamlit_run_1.png)
+
+_streamlit 실행화면(1)_
+
+정상적으로 실행이 됐다면, 다음과 같이 웹 화면을 볼 수 있습니다. 
+
+![streamlit_run_2](/assets/images/streamlit_run_2.png)
+
+_streamlit 실행화면(2)_
+
+이제 파일을 업로드 후 질문을 하면 답변을 받을 수 있습니다. 
 
 
 
