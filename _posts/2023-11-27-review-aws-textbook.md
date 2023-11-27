@@ -6,7 +6,7 @@ categories: [Review]
 tags: [도서리뷰, Review, 길벗, AWS, Cloud]
 ---
 
-***본 리뷰는 '길벗으로 부터 책을 제공받아 작성했습니다.***
+***본 리뷰는 '길벗'으로 부터 책을 제공받아 작성했습니다.***
 
 ![Cover Page](/assets/images/aws_textbook.png){: width="700" height="400" }
 
