@@ -76,13 +76,13 @@ _streamlit 실행화면(2)_
 _streamlit 결과 출력화면_
 
 지금까지 chatPDF 를 웹 서비스가 가능한 형태로 작성해 보았습니다.
-chatGPT 이후 상담을 하거나, 법률 조언을 받는 등 종종 특정 기능을 수행하는 chatbot 들이 존재합니다. 이러한 챗봇들은 기본적인 LLM 모델에 chatPDF 처럼 필요한 내용을 학습해 질문에 걸맞는 답변을 내놓습니다. 즉, 학습하는 데이터의 종류에 따라 기능이 달라집니다. 
+chatGPT 이후 상담을 하거나, 법률 조언을 받는 등 종종 특정 기능을 수행하는 챗봇들이 존재합니다. 이러한 챗봇들은 기본적인 LLM 모델에 chatPDF 처럼 필요한 내용을 학습해 질문에 걸맞는 답변을 내놓습니다. 즉, 학습하는 데이터의 종류에 따라 기능이 달라집니다. 
 보안에 관심이 많아 AWS 보안에 대한 PDF 를 학습시켰던 것처럼 자신이 원하는 PDF 를 학습시켜 자신만의 챗봇을 만들어보기 바랍니다.
 
 ---
 ### 참고
-* Streamlit 파일업로드 참고 [소스코드](https://github.com/langchain-ai/streamlit-agent/blob/main/streamlit_agent/chat_with_documents.py)
 * 샘플코드
+    - [streamlit 파일 업로드](https://github.com/langchain-ai/streamlit-agent/blob/main/streamlit_agent/chat_with_documents.py)
     - [chatPDF_with_streamlit.py](https://github.com/KeiTechNote/blog/tree/main/codes/chatPDF_with_streamlit.py)
 
 ---
