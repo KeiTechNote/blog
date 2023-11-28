@@ -31,7 +31,7 @@ import os
 
 uploaded_file = st.file_uploader("Choose a file")
 # 파일 업로드 후 동작하는 코드
-if uploaded_file is not None:
+if uploaded_file:
     tmp_dir = tempfile.TemporaryDirectory()
     tmp_filepath = os.path.join(tmp_dir.name, uploaded_file.name)
     with open(tmp_filepath, "wb") as fp:
@@ -49,7 +49,7 @@ if st.button("질문하기"):
     # 질문이후 코드 삽입
     # ...
     # 질문에 대한 결과 출력 부분
-    st.write(answer)
+    st.markdown(answer.get("result", ""))
 ```
 
 > 만약, 매번 파일을 업로드해 학습하지 않고 정해진 학습을 유지한 채 지속적으로 사용하고 싶다면, Chroma 의 옵션을 추가하면 됩니다. 해당 내용은 [이전 Post][step3_chatpdf_chroma_option] 에 포함되어 있으니 참고하기 바랍니다. 
@@ -71,14 +71,13 @@ _streamlit 실행화면(2)_
 
 이제 파일을 업로드 후 질문을 하면 답변을 받을 수 있습니다. 
 
+![streamlit_run_3](/assets/images/streamlit_run_3.png)
 
+_streamlit 결과 출력화면_
 
-
-
-
----
-### 정리
-* 
+지금까지 chatPDF 를 웹 서비스가 가능한 형태로 작성해 보았습니다.
+chatGPT 이후 상담을 하거나, 법률 조언을 받는 등 종종 특정 기능을 수행하는 chatbot 들이 존재합니다. 이러한 챗봇들은 기본적인 LLM 모델에 chatPDF 처럼 필요한 내용을 학습해 질문에 걸맞는 답변을 내놓습니다. 즉, 학습하는 데이터의 종류에 따라 기능이 달라집니다. 
+보안에 관심이 많아 AWS 보안에 대한 PDF 를 학습시켰던 것처럼 자신이 원하는 PDF 를 학습시켜 자신만의 챗봇을 만들어보기 바랍니다.
 
 ---
 ### 참고
