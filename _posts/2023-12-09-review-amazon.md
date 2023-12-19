@@ -6,8 +6,6 @@ categories: [Review]
 tags: [도서리뷰, Review, 아마존, 베조스, amazond]
 ---
 
-***본 리뷰는 '길벗'으로 부터 책을 제공받아 작성했습니다.***
-
 ![Cover Page](/assets/images/aws_the_everything_bezos.png)
 
 - 도서명 : 아마존, 세상의 모든 것을 팝니다.
