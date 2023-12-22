@@ -155,12 +155,12 @@ Welcome to the AI World.
 입력한 글을 모두 선택한 후 마우스 오른쪽 메뉴에서 `General Requests with Inputbox` (단축키 : `Ctrl + Alt + Shift + ,`) 를 선택합니다. 
 VSCode 상단에 나타나는 입력창에 "한국말로 번역해줘" 라고 입력하면 한글로 번역되는 것을 확인할 수 있습니다. 
 
-![test_aicodehelper_1](image.png)
+![test_aicodehelper_1](/assets/images/test_aicodehelper_1.png)
 
 _AICodeHelper 사용해 보기 - 번역 (1)_
 
 
-![test_aicodehelper_2](image-1.png)
+![test_aicodehelper_2](/assets/images/test_aicodehelper_2.png)
 
 _AICodeHelper 사용해 보기 - 번역 (2)_
 
